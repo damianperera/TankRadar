@@ -1,5 +1,5 @@
 name: "🛟 Support Request / Bug Report"
-description: "Having trouble with the app? Fill out this form and we'll help you out."
+description: "Having trouble with the app? Fill out this form and I'll help you out."
 title: "[Support] "
 labels: ["support", "needs-triage"]
 assignees:
@@ -9,12 +9,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br/><h1>👋 Welcome! We're here to help.</h1>
-        <p>Please fill out this form as completely as possible - the more detail you provide, the faster we can fix the issue for you.</p>
-  
+        \<h1>👋 Welcome! I'm here to help.</h1>
+        <p>Please fill out this form as completely as possible — the more detail you provide, the faster I can fix the issue for you.</p>
+
         > [!IMPORTANT]
-        > 🌍 **Please write in English** - our support team only speaks English, so we want to make sure we fully understand your issue and can help you as best we can! If English isn't your first language, don't worry at all - simple sentences are perfectly fine, and tools like [Google Translate](https://translate.google.com) and [DeepL](https://www.deepl.com/translator) can help.
-  
+        > 🌍 **Please write in English** — I'm a one-man team, and English is the only language I can work in, so I want to make sure I fully understand your issue and can help you as best I can! If English isn't your first language, don't worry at all — simple sentences are perfectly fine, and tools like [Google Translate](https://translate.google.com) and [DeepL](https://www.deepl.com/translator) can help.
+
         > [!TIP]
         > 💡 You can drag and drop screenshots or screen recordings directly into any text box below!
 
@@ -23,7 +23,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br/><h2>✅ Before You Submit</h2>
+        \<h2>✅ Before You Submit</h2>
 
   - type: checkboxes
     id: preflight
@@ -51,13 +51,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br/><h2>🐛 Describe the Problem</h2>
+        \<h2>🐛 Describe the Problem</h2>
 
   - type: textarea
     id: description
     attributes:
       label: "What's going wrong?"
-      description: "Describe the issue in as much detail as you can. Don't worry about being too technical - just explain what you see happening."
+      description: "Describe the issue in as much detail as you can. Don't worry about being too technical — just explain what you see happening."
       placeholder: |
         Example: "When I tap the 'Login' button, the app just freezes for a few seconds and then shows a blank white screen. Nothing happens after that."
     validations:
@@ -67,7 +67,7 @@ body:
     id: expected
     attributes:
       label: "What did you expect to happen?"
-      description: "Tell us what you wanted or expected the app to do."
+      description: "Tell me what you wanted or expected the app to do."
       placeholder: |
         Example: "I expected to be logged in and taken to the home screen."
     validations:
@@ -76,8 +76,8 @@ body:
   - type: textarea
     id: steps
     attributes:
-      label: "How can we reproduce the issue?"
-      description: "Walk us through the exact steps to make the problem happen. Be as specific as possible."
+      label: "How can I reproduce the issue?"
+      description: "Walk me through the exact steps to make the problem happen. Be as specific as possible."
       placeholder: |
         Step 1: Open the app
         Step 2: Tap on "Login"
@@ -104,7 +104,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br/><h2>📱 Your Device &amp; App Info</h2>
+        \<h2>📱 Your Device &amp; App Info</h2>
 
   - type: input
     id: device_model
@@ -128,7 +128,7 @@ body:
     id: app_version
     attributes:
       label: "App version"
-      description: "Find this in the App Store on your iPhone - tap your profile picture, scroll to the app under 'Updated Recently', and note the version number."
+      description: "Find this in the App Store on your iPhone — tap your profile picture, scroll to the app under 'Updated Recently', and note the version number."
       placeholder: "e.g. 2.3.1"
     validations:
       required: true
@@ -138,13 +138,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br/><h2>📸 Screenshots &amp; Screen Recordings</h2>
+        <h2>📸 Screenshots &amp; Screen Recordings</h2>
         <p>A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.</p>
         <ul>
           <li><strong>Screenshot:</strong> Press the <strong>Side Button + Volume Up</strong> at the same time. The screenshot will be saved to your Photos app.</li>
           <li><strong>Screen recording:</strong> Swipe down from the top-right corner to open <strong>Control Center</strong>, then tap the <strong>⏺ Record</strong> button. Tap it again to stop. The recording saves to your Photos app.</li>
         </ul>
-  
+
         > [!TIP]
         > 📎 Drag and drop your files into the text box below, or tap/click the box to browse and upload them.
 
@@ -162,7 +162,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br/><h2>❌ Error Messages</h2>
+        \<h2>❌ Error Messages</h2>
 
   - type: textarea
     id: error_message
@@ -179,23 +179,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br/><h2>💬 Additional Context</h2>
+        \<h2>💬 Additional Context</h2>
 
   - type: textarea
     id: additional
     attributes:
-      label: "Anything else we should know?"
-      description: "Any other details that might help - for example: Did this start after an update? Does it only happen on certain WiFi networks? Did it used to work before?"
+      label: "Anything else I should know?"
+      description: "Any other details that might help — for example: Did this start after an update? Does it only happen on certain WiFi networks? Did it used to work before?"
       placeholder: "e.g. This started happening after updating to version 2.3.0. It works fine on WiFi but not on mobile data."
-    validations:
-      required: false
-
-  - type: input
-    id: contact
-    attributes:
-      label: "Your email address (optional)"
-      description: "If you'd prefer a direct reply via email rather than a comment on this issue, leave it here."
-      placeholder: "yourname@example.com"
     validations:
       required: false
 
@@ -204,10 +195,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br/><h2>✔️ Final Confirmation</h2>
+        \<h2>✔️ Final Confirmation</h2>
 
         > [!WARNING]
-        > 🧪 **Are you a TestFlight beta tester?** If your app was installed via TestFlight, please **do not use this form**. Instead, submit your feedback directly through the TestFlight app - Apple provides a built-in feedback tool just for beta testers. See [Apple's TestFlight guide](https://developer.apple.com/testflight/) for instructions.
+        > 🧪 **Are you a TestFlight beta tester?** If your app was installed via TestFlight, please **do not use this form**. Instead, submit your feedback directly through the TestFlight app — Apple provides a built-in feedback tool just for beta testers. See [Apple's TestFlight guide](https://developer.apple.com/testflight/) for instructions.
 
   - type: checkboxes
     id: confirmation
@@ -218,5 +209,5 @@ body:
           required: true
         - label: "I have attached screenshots or a recording (if applicable)"
           required: false
-        - label: "I confirm this is **not** a TestFlight build - I installed the app from the App Store, not via the [TestFlight beta program](https://developer.apple.com/testflight/)"
+        - label: "I confirm this is **not** a TestFlight build — I installed the app from the App Store, not via the [TestFlight beta program](https://developer.apple.com/testflight/)"
           required: true
