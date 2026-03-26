@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tank Radar – Real-Time Fuel Prices</title>
+  <title>Tank Radar | Real-Time Fuel Prices</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Background glow ── */
     body::before {
       content: '';
       position: fixed;
@@ -107,7 +106,7 @@
       animation: orb 7s ease-in-out infinite alternate;
     }
     @keyframes orb {
-      from { transform: translate(-50%,-50%) scale(1);   opacity: .7; }
+      from { transform: translate(-50%,-50%) scale(1);    opacity: .7; }
       to   { transform: translate(-50%,-53%) scale(1.12); opacity: 1; }
     }
 
@@ -181,35 +180,83 @@
     /* ── Screenshots ── */
     .screenshots-section {
       position: relative; z-index: 1;
-      padding: 0 24px 80px; overflow: hidden;
+      padding: 0 0 0;
+      overflow: hidden;
     }
+    /* Fade bottom edge into the page background */
     .screenshots-section::after {
       content: '';
-      position: absolute; bottom: 0; left: 0; right: 0; height: 220px;
+      position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
       background: linear-gradient(to bottom, transparent, var(--bg));
       pointer-events: none; z-index: 2;
     }
+    /* Subtle vignette on left/right edges */
+    .screenshots-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right,
+        var(--bg) 0%,
+        transparent 8%,
+        transparent 92%,
+        var(--bg) 100%);
+      pointer-events: none; z-index: 2;
+    }
+
+    /* The 4 images form one continuous panoramic artwork — keep them flush */
     .screenshots {
       display: flex;
       justify-content: center;
-      align-items: flex-end;
-      gap: 16px;
-      max-width: 860px; margin: 0 auto;
+      align-items: flex-end;        /* anchor at bottom so they share a baseline */
+      gap: 0;                        /* no gap — they're one split image */
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
     }
     .screenshots img {
-      width: 18%; min-width: 110px;
-      border-radius: 22px;
-      box-shadow: 0 30px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.07);
-      transition: transform .35s ease, box-shadow .35s ease;
+      /* each image is one quarter; together they fill ~95% of the container */
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 260px;
+      width: 100%;
+      display: block;
+      /* keep the natural proportions and let height grow naturally */
+      height: auto;
+      /* slight rounding only on the outermost corners */
+      border-radius: 0;
+      box-shadow: none;
+      transition: filter .3s ease;
     }
-    .screenshots img:nth-child(1) { transform: translateY(0px); }
-    .screenshots img:nth-child(2) { transform: translateY(-24px); }
-    .screenshots img:nth-child(3) { transform: translateY(-40px); }
-    .screenshots img:nth-child(4) { transform: translateY(-24px); }
-    .screenshots img:hover {
-      transform: translateY(-60px) scale(1.04) !important;
-      box-shadow: 0 48px 90px rgba(0,0,0,.65), 0 0 0 1px rgba(96,165,250,.35);
+    /* round the two outer edges only */
+    .screenshots img:first-child { border-radius: 22px 0 0 22px; }
+    .screenshots img:last-child  { border-radius: 0 22px 22px 0; }
+
+    .screenshots:hover img { filter: brightness(.72); }
+    .screenshots img:hover  { filter: brightness(1) !important; }
+
+    /* wrap in a card so the shadow sits under the full panorama */
+    .screenshots-frame {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
     }
+    .screenshots-inner {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.07);
+    }
+    .screenshots-inner img {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: filter .3s ease;
+    }
+    .screenshots-inner:hover img         { filter: brightness(.72); }
+    .screenshots-inner img:hover         { filter: brightness(1) !important; }
 
     /* ── Section ── */
     .section {
@@ -249,6 +296,11 @@
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 16px;
     }
+    /* Make the last card (6th) span full width on a 2-column row so it's centred */
+    @media (min-width: 900px) {
+      .cards { grid-template-columns: repeat(3, 1fr); }
+    }
+
     .card {
       background: var(--surface);
       border: 1px solid var(--surface-border);
@@ -262,6 +314,20 @@
       border-color: rgba(96,165,250,.22);
       box-shadow: 0 16px 48px rgba(0,0,0,.35), 0 0 0 1px rgba(96,165,250,.1);
     }
+    /* Highlight card - amber tint for the rental car one */
+    .card.featured {
+      border-color: rgba(245,158,11,.2);
+      background: linear-gradient(135deg, rgba(245,158,11,.07), rgba(251,146,60,.04));
+    }
+    .card.featured:hover {
+      border-color: rgba(245,158,11,.4);
+      box-shadow: 0 16px 48px rgba(0,0,0,.35), 0 0 0 1px rgba(245,158,11,.15);
+    }
+    .card.featured .card-icon {
+      background: linear-gradient(135deg, rgba(245,158,11,.15), rgba(251,146,60,.07));
+      border-color: rgba(245,158,11,.3);
+    }
+
     .card-icon {
       width: 50px; height: 50px;
       background: linear-gradient(135deg, rgba(96,165,250,.15), rgba(59,130,246,.07));
@@ -272,6 +338,18 @@
     }
     .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
     .card p  { font-size: .9rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* optional "pill" label on a card */
+    .card-label {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(245,158,11,.12);
+      border: 1px solid rgba(245,158,11,.25);
+      color: var(--accent);
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .5px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 999px;
+      margin-bottom: 12px;
+    }
 
     /* ── Fuel Types ── */
     .fuel-outer {
@@ -377,9 +455,8 @@
       nav { padding: 12px 20px; }
       .nav-appstore .nav-label { display: none; }
       .fuel-grid { grid-template-columns: 1fr; max-width: 280px; }
-      .screenshots img:nth-child(1),
-      .screenshots img:nth-child(4) { display: none; }
-      .screenshots img { width: 42%; }
+      .screenshots-inner { border-radius: 16px; }
+      .screenshots-frame { padding: 0 16px 60px; }
     }
   </style>
 </head>
@@ -420,13 +497,15 @@
     </div>
   </header>
 
-  <!-- Screenshots -->
+  <!-- Screenshots — treated as one continuous panoramic image -->
   <div class="screenshots-section">
-    <div class="screenshots">
-      <img src="https://github.com/user-attachments/assets/b316010d-8055-4485-a059-095e2c50fc97" alt="Tank Radar screenshot 1" />
-      <img src="https://github.com/user-attachments/assets/feada48e-0910-4f1a-bfc6-f412898cb931" alt="Tank Radar screenshot 2" />
-      <img src="https://github.com/user-attachments/assets/825fdb3b-26b9-42f5-a0b1-89726029ac7d" alt="Tank Radar screenshot 3" />
-      <img src="https://github.com/user-attachments/assets/cdc791b0-55d5-46f8-8a60-a036eeed6f81" alt="Tank Radar screenshot 4" />
+    <div class="screenshots-frame">
+      <div class="screenshots-inner">
+        <img src="https://github.com/user-attachments/assets/b316010d-8055-4485-a059-095e2c50fc97" alt="Tank Radar - station list" />
+        <img src="https://github.com/user-attachments/assets/feada48e-0910-4f1a-bfc6-f412898cb931" alt="Tank Radar - price detail" />
+        <img src="https://github.com/user-attachments/assets/825fdb3b-26b9-42f5-a0b1-89726029ac7d" alt="Tank Radar - map view" />
+        <img src="https://github.com/user-attachments/assets/cdc791b0-55d5-46f8-8a60-a036eeed6f81" alt="Tank Radar - CarPlay" />
+      </div>
     </div>
   </div>
 
@@ -438,31 +517,44 @@
       <p class="reveal reveal-d2">Built for drivers who want the best price without the distraction.</p>
     </div>
     <div class="cards">
+
       <div class="card reveal reveal-d1">
         <div class="card-icon">🚗</div>
         <h3>CarPlay Integration</h3>
         <p>View nearby stations and prices directly on your CarPlay screen. Tap to get turn-by-turn directions to the cheapest station — hands-free and distraction-free.</p>
       </div>
+
       <div class="card reveal reveal-d2">
         <div class="card-icon">💰</div>
         <h3>Find Cheaper Fuel Nearby</h3>
         <p>Set your search radius between 5 and 25 km and see stations sorted by price and distance. The best deal is always clearly highlighted at the top.</p>
       </div>
+
       <div class="card reveal reveal-d3">
-        <div class="card-icon">🧳</div>
-        <h3>Smart for Road Trips</h3>
-        <p>Quickly reset your preferred fuel type from the main screen. Tank Radar auto-updates fuel types and prices as you cross borders on a road trip.</p>
-      </div>
-      <div class="card reveal reveal-d1">
         <div class="card-icon">⏱️</div>
         <h3>On-Device ETA & Live Updates</h3>
         <p>Estimated travel time to each station is calculated directly on your device. Pull to refresh anytime to get the very latest prices.</p>
       </div>
-      <div class="card reveal reveal-d2">
+
+      <div class="card reveal reveal-d1">
         <div class="card-icon">🗺️</div>
         <h3>Your Favourite Maps App</h3>
         <p>Tap any station to open the route in Google Maps, Waze, or Apple Maps — or jump straight into CarPlay for a fully integrated experience.</p>
       </div>
+
+      <div class="card reveal reveal-d2">
+        <div class="card-icon">🧳</div>
+        <h3>Smart for Road Trips</h3>
+        <p>Tank Radar auto-updates fuel types and prices as you cross borders, so you always see what's relevant — no matter which country you're driving through.</p>
+      </div>
+
+      <div class="card featured reveal reveal-d3">
+        <div class="card-label">🚙 Rental Car Friendly</div>
+        <div class="card-icon">🔄</div>
+        <h3>One-Tap Fuel Type Reset</h3>
+        <p>Picked up a rental with a different engine? Switch your preferred fuel type instantly from the main screen — no digging through menus. Always see the right prices for whatever you're driving today.</p>
+      </div>
+
     </div>
   </section>
 
@@ -530,17 +622,15 @@
   </div>
 
   <footer>
-    <p>© 2026 Tank Radar · All rights reserved</p>
+    <p>&copy; 2026 Damian Perera · All rights reserved · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">End User License Agreement (EULA)</p>
   </footer>
 
   <script>
-    // Scroll-reveal via IntersectionObserver
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Navbar blur intensity on scroll
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       nav.style.background = window.scrollY > 40
