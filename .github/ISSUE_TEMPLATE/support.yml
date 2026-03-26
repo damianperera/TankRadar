@@ -7,23 +7,22 @@ assignees:
 body:
 
   - type: markdown
-    attributes:
-      value: |
-        <h1>👋 Welcome! We're here to help.</h1>
-        <p>Please fill out this form as completely as possible — the more detail you provide, the faster we can fix the issue for you.</p>
-        <blockquote>
-          🌍 <strong>Please write in English</strong> — our support team only speaks English, so we want to make sure we fully understand your issue and can help you as best we can! If English isn't your first language, don't worry at all — simple sentences are perfectly fine, and tools like <a href="https://translate.google.com">Google Translate</a> and <a href="https://www.deepl.com/translator">DeepL</a> can help.
-        </blockquote>
-        <blockquote>
-          💡 <strong>Tip:</strong> You can drag and drop screenshots or screen recordings directly into any text box below!
-        </blockquote>
+  attributes:
+    value: |
+      <h1>👋 Welcome! We're here to help.</h1>
+      <p>Please fill out this form as completely as possible — the more detail you provide, the faster we can fix the issue for you.</p>
+
+      > [!IMPORTANT]
+      > 🌍 **Please write in English** — our support team only speaks English, so we want to make sure we fully understand your issue and can help you as best we can! If English isn't your first language, don't worry at all — simple sentences are perfectly fine, and tools like [Google Translate](https://translate.google.com) and [DeepL](https://www.deepl.com/translator) can help.
+
+      > [!TIP]
+      > 💡 You can drag and drop screenshots or screen recordings directly into any text box below!
 
   # ── Before You Submit ──────────────────────────────────────────────
 
   - type: markdown
     attributes:
       value: |
-        <br>
         <h2>✅ Before You Submit</h2>
 
   - type: checkboxes
@@ -52,7 +51,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br>
         <h2>🐛 Describe the Problem</h2>
 
   - type: textarea
@@ -106,7 +104,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br>
         <h2>📱 Your Device &amp; App Info</h2>
 
   - type: input
@@ -139,18 +136,17 @@ body:
   # ── Screenshots & Recordings ────────────────────────────────────────
 
   - type: markdown
-    attributes:
-      value: |
-        <br>
-        <h2>📸 Screenshots &amp; Screen Recordings</h2>
-        <p>A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.</p>
-        <ul>
-          <li><strong>Screenshot:</strong> Press the <strong>Side Button + Volume Up</strong> at the same time. The screenshot will be saved to your Photos app.</li>
-          <li><strong>Screen recording:</strong> Swipe down from the top-right corner to open <strong>Control Center</strong>, then tap the <strong>⏺ Record</strong> button. Tap it again to stop. The recording saves to your Photos app.</li>
-        </ul>
-        <blockquote>
-          📎 Drag and drop your files into the text box below, or tap/click the box to browse and upload them.
-        </blockquote>
+  attributes:
+    value: |
+      <h2>📸 Screenshots &amp; Screen Recordings</h2>
+      <p>A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.</p>
+      <ul>
+        <li><strong>Screenshot:</strong> Press the <strong>Side Button + Volume Up</strong> at the same time. The screenshot will be saved to your Photos app.</li>
+        <li><strong>Screen recording:</strong> Swipe down from the top-right corner to open <strong>Control Center</strong>, then tap the <strong>⏺ Record</strong> button. Tap it again to stop. The recording saves to your Photos app.</li>
+      </ul>
+
+      > [!TIP]
+      > 📎 Drag and drop your files into the text box below, or tap/click the box to browse and upload them.
 
   - type: textarea
     id: media
@@ -166,7 +162,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br>
         <h2>❌ Error Messages</h2>
 
   - type: textarea
@@ -184,7 +179,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br>
         <h2>💬 Additional Context</h2>
 
   - type: textarea
@@ -210,11 +204,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        <br>
         <h2>✔️ Final Confirmation</h2>
-        <blockquote>
-          🧪 <strong>Are you a TestFlight beta tester?</strong> If your app was installed via TestFlight, please <strong>do not use this form</strong>. Instead, submit your feedback directly through the TestFlight app — Apple provides a built-in feedback tool just for beta testers. See <a href="https://developer.apple.com/testflight/">Apple's TestFlight guide</a> for instructions.
-        </blockquote>
+
+        > [!WARNING]
+        > 🧪 **Are you a TestFlight beta tester?** If your app was installed via TestFlight, please **do not use this form**. Instead, submit your feedback directly through the TestFlight app — Apple provides a built-in feedback tool just for beta testers. See [Apple's TestFlight guide](https://developer.apple.com/testflight/) for instructions.
 
   - type: checkboxes
     id: confirmation
