@@ -1,1 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tank Radar – Real-Time Fuel Prices</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:       #1a73e8;
+      --primary-dark:  #1558b0;
+      --surface:       #ffffff;
+      --background:    #f8f9fa;
+      --on-surface:    #202124;
+      --subtle:        #5f6368;
+      --border:        #e8eaed;
+      --shadow-sm:     0 1px 3px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md:     0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.05);
+      --shadow-lg:     0 10px 24px rgba(0,0,0,.10), 0 4px 8px rgba(0,0,0,.06);
+      --radius:        12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--on-surface);
+      line-height: 1.6;
+    }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px 100px;
+    }
+
+    .hero-icon { font-size: 64px; margin-bottom: 16px; }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: .88;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 500;
+    }
+
+    /* ── Screenshots ─────────────────────────────────────── */
+    .screenshots-wrapper {
+      background: linear-gradient(180deg, #0d47a1 0%, var(--background) 100%);
+      padding: 0 24px 60px;
+    }
+
+    .screenshots {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .screenshots img {
+      width: 18%;
+      min-width: 130px;
+      border-radius: 18px;
+      box-shadow: var(--shadow-lg);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .screenshots img:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,.18);
+    }
+
+    /* ── Section ─────────────────────────────────────────── */
+    section {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--subtle);
+      margin-bottom: 48px;
+      font-size: 1rem;
+    }
+
+    /* ── Feature Cards Grid ──────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s ease, transform .2s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: .92rem;
+      color: var(--subtle);
+      line-height: 1.65;
+    }
+
+    /* ── Fuel Types Table ────────────────────────────────── */
+    .fuel-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fuel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .fuel-card {
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .fuel-card .flag { font-size: 2.2rem; margin-bottom: 8px; }
+    .fuel-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+
+    .fuel-tag {
+      display: inline-block;
+      background: #e8f0fe;
+      color: var(--primary);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin: 3px 2px;
+    }
+
+    /* ── Languages ───────────────────────────────────────── */
+    .lang-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .lang-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: .95rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lang-pill .flag { font-size: 1.2rem; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--subtle);
+      font-size: .85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .fuel-grid { grid-template-columns: 1fr; max-width: 320px; }
+      .screenshots img { width: 40%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-icon">⛽</div>
+    <h1>Tank Radar</h1>
+    <p>Real-time fuel prices with CarPlay support in Germany, Austria and Italy. Find the cheapest station near you and navigate hands-free.</p>
+    <div class="hero-badges">
+      <span class="badge">🇩🇪 Germany</span>
+      <span class="badge">🇦🇹 Austria</span>
+      <span class="badge">🇮🇹 Italy</span>
+      <span class="badge">🚗 CarPlay</span>
+    </div>
+  </header>
+
+  <!-- Screenshots -->
+  <div class="screenshots-wrapper">
+    <div class="screenshots">
+      <img src="https://github.com/user-attachments/assets/b316010d-8055-4485-a059-095e2c50fc97" alt="Tank Radar screenshot 1" />
+      <img src="https://github.com/user-attachments/assets/feada48e-0910-4f1a-bfc6-f412898cb931" alt="Tank Radar screenshot 2" />
+      <img src="https://github.com/user-attachments/assets/825fdb3b-26b9-42f5-a0b1-89726029ac7d" alt="Tank Radar screenshot 3" />
+      <img src="https://github.com/user-attachments/assets/cdc791b0-55d5-46f8-8a60-a036eeed6f81" alt="Tank Radar screenshot 4" />
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section>
+    <h2>Everything you need at the pump</h2>
+    <p class="section-sub">Built for drivers who want the best price without the distraction.</p>
+    <div class="cards">
+
+      <div class="card">
+        <span class="card-icon">🚗</span>
+        <h3>CarPlay Integration</h3>
+        <p>View nearby stations and prices directly on your CarPlay screen. Tap to get turn-by-turn directions to the cheapest station — hands-free and distraction-free while driving.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">💰</span>
+        <h3>Find Cheaper Fuel Nearby</h3>
+        <p>Set your search radius between 5 and 25 km and instantly see stations around you, sorted by price and distance. The best price is clearly highlighted at the top of the list.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">🧳</span>
+        <h3>Smart for Rental Cars & Road Trips</h3>
+        <p>Quickly reset your preferred fuel type from the main screen. On road trips across borders, Tank Radar updates fuel types and prices automatically as you enter a new country.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">⏱️</span>
+        <h3>On-Device ETA & Live Updates</h3>
+        <p>Estimated travel time to each station is calculated directly on your device. Pull to refresh anytime to get the latest prices without leaving the app.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">🗺️</span>
+        <h3>Navigate with Your Favourite Maps App</h3>
+        <p>Tap any station to open the route in Google Maps, Waze, or your preferred navigation app — or jump straight into CarPlay for a fully integrated experience.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Fuel Types -->
+  <section class="fuel-section">
+    <h2>Supports Local Fuel Types</h2>
+    <p class="section-sub">Tank Radar adapts to the country you're in and shows what's actually available at the pump.</p>
+    <div class="fuel-grid">
+      <div class="fuel-card">
+        <div class="flag">🇩🇪</div>
+        <h4>Germany</h4>
+        <span class="fuel-tag">E5</span>
+        <span class="fuel-tag">E10</span>
+        <span class="fuel-tag">Diesel</span>
+      </div>
+      <div class="fuel-card">
+        <div class="flag">🇦🇹</div>
+        <h4>Austria</h4>
+        <span class="fuel-tag">E5</span>
+        <span class="fuel-tag">Diesel</span>
+        <span class="fuel-tag">CNG</span>
+      </div>
+      <div class="fuel-card">
+        <div class="flag">🇮🇹</div>
+        <h4>Italy</h4>
+        <span class="fuel-tag">E5</span>
+        <span class="fuel-tag">Diesel</span>
+        <span class="fuel-tag">LPG</span>
+        <span class="fuel-tag">CNG</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section>
+    <h2>Available In</h2>
+    <p class="section-sub">Tank Radar speaks your language.</p>
+    <div class="lang-row">
+      <div class="lang-pill"><span class="flag">🇬🇧</span> English</div>
+      <div class="lang-pill"><span class="flag">🇩🇪</span> German</div>
+      <div class="lang-pill"><span class="flag">🇮🇹</span> Italian</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Tank Radar. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
 
