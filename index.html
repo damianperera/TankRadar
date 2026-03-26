@@ -398,6 +398,28 @@
     }
 
     /* ── Languages ── */
+    .flag-img {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 10px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.1);
+    }
+    
+    .lang-pill .flag-img {
+      width: 22px; height: 22px;
+      margin: 0; /* override block centering — inline context */
+      flex-shrink: 0;
+    }
+    
+    .badge .flag-img {
+      width: 16px; height: 16px;
+      margin: 0;
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
     .lang-row {
       display: flex; justify-content: center;
       gap: 14px; flex-wrap: wrap;
@@ -514,9 +536,9 @@
       </a>
     </div>
     <div class="hero-badges">
-      <span class="badge">🇩🇪 Germany</span>
-      <span class="badge">🇦🇹 Austria</span>
-      <span class="badge">🇮🇹 Italy</span>
+      <span class="badge"><img class="flag-img" src="/images/germany.png" alt="" /> Germany</span>
+      <span class="badge"><img class="flag-img" src="/images/austria.png" alt="" /> Austria</span>
+      <span class="badge"><img class="flag-img" src="/images/italy.png" alt="" /> Italy</span>
     </div>
   </header>
 
@@ -590,27 +612,28 @@
       </div>
       <div class="fuel-grid reveal reveal-d3">
         <div class="fuel-card">
-          <div class="flag">🇩🇪</div>
+          <img class="flag-img" src="/images/germany.png" alt="Germany" />
           <h4>Germany</h4>
-          <span class="fuel-tag">E5/Super E5</span>
-          <span class="fuel-tag">E10/Super E10</span>
+          <span class="fuel-tag">E5/Super</span>
+          <span class="fuel-tag">E10/Super</span>
           <span class="fuel-tag">Diesel</span>
         </div>
         <div class="fuel-card">
-          <div class="flag">🇦🇹</div>
+          <img class="flag-img" src="/images/austria.png" alt="Austria" />
           <h4>Austria</h4>
-          <span class="fuel-tag">E5/Super E5</span>
+          <span class="fuel-tag">E5/Super</span>
           <span class="fuel-tag">Diesel</span>
           <span class="fuel-tag">CNG</span>
         </div>
         <div class="fuel-card">
-          <div class="flag">🇮🇹</div>
+          <img class="flag-img" src="/images/italy.png" alt="Italy" />
           <h4>Italy</h4>
-          <span class="fuel-tag">E5/Super E5</span>
+          <span class="fuel-tag">E5/Super</span>
           <span class="fuel-tag">Diesel</span>
           <span class="fuel-tag">LPG</span>
           <span class="fuel-tag">CNG</span>
         </div>
+
       </div>
     </div>
   </div>
@@ -623,9 +646,9 @@
       <p class="reveal reveal-d2">Tank Radar speaks your language.</p>
     </div>
     <div class="lang-row reveal reveal-d3">
-      <div class="lang-pill">🇬🇧 English</div>
-      <div class="lang-pill">🇩🇪 German</div>
-      <div class="lang-pill">🇮🇹 Italian</div>
+      <div class="lang-pill"><img class="flag-img" src="/images/uk.png" alt="English" /> English</div>
+      <div class="lang-pill"><img class="flag-img" src="/images/germany.png" alt="German" /> German</div>
+      <div class="lang-pill"><img class="flag-img" src="/images/italy.png" alt="Italian" /> Italian</div>
     </div>
   </section>
 
