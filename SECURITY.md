@@ -25,19 +25,11 @@ Public issues are visible to everyone, which could put users at risk before a fi
 
 Instead, please report vulnerabilities using one of the following private channels:
 
-### Option 1 — GitHub Private Security Advisory (Preferred)
-Use GitHub's built-in private reporting tool:
-👉 [Report a Vulnerability](../../security/advisories/new)
+### GitHub Private Security Advisory
+Use GitHub's built-in private reporting tool &#8594; [Report a Vulnerability](../../security/advisories/new)
 
 This creates a private, encrypted thread between you and the maintainer and is
 the fastest way to get a response.
-
-### Option 2 — Direct Email
-If you're unable to use GitHub's tool, you can email us directly:
-
-📧 **security@yourapp.com**
-
-Please use the subject line: `[SECURITY] Brief description of the issue`
 
 ---
 
