@@ -20,7 +20,9 @@ body:
 
   - type: markdown
     attributes:
-      value: "## ✅ Before You Submit"
+      value: |
+        <br>
+        ## ✅ Before You Submit
 
   - type: checkboxes
     id: preflight
@@ -47,7 +49,9 @@ body:
 
   - type: markdown
     attributes:
-      value: "## 🐛 Describe the Problem"
+      value: |
+        <br>
+        ## 🐛 Describe the Problem
 
   - type: textarea
     id: description
@@ -99,7 +103,9 @@ body:
 
   - type: markdown
     attributes:
-      value: "## 📱 Your Device & App Info"
+      value: |
+        <br>
+        ## 📱 Your Device & App Info
 
   - type: input
     id: device_model
@@ -133,6 +139,7 @@ body:
   - type: markdown
     attributes:
       value: |
+        <br>
         ## 📸 Screenshots & Screen Recordings
 
         A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.
@@ -153,6 +160,12 @@ body:
 
   # ── Error Messages ──────────────────────────────────────────────────
 
+  - type: markdown
+    attributes:
+      value: |
+        <br>
+        ## ❌ Error Messages
+
   - type: textarea
     id: error_message
     attributes:
@@ -164,6 +177,12 @@ body:
       required: false
 
   # ── Additional Context ──────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: |
+        <br>
+        ## 💬 Additional Context
 
   - type: textarea
     id: additional
@@ -184,6 +203,12 @@ body:
       required: false
 
   # ── Final Confirmation ──────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: |
+        <br>
+        ## ✔️ Final Confirmation
 
   - type: checkboxes
     id: confirmation
