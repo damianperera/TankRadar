@@ -206,7 +206,8 @@ body:
         <h2><img src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png" width="20" height="20"> Final Confirmation</h2>
 
         > [!WARNING]
-        > :test_tube: **Are you a TestFlight beta tester?** If your app was installed via TestFlight, please **do not use this form**. Instead, submit your feedback directly through the TestFlight app — Apple provides a built-in feedback tool just for beta testers. See [Apple's TestFlight guide](https://developer.apple.com/testflight/) for instructions.
+        > <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/8e/ef/398eefa6-b269-b10b-650d-0c877baf3e6b/AppIcon-0-1x_U007epad-0-1-0-P3-85-220-0.png/20x20bb.jpg" width="16" height="16">
+        > **Are you a TestFlight beta tester?** If your app was installed via TestFlight, please **do not use this form**. Instead, submit your feedback directly through the TestFlight app — Apple provides a built-in feedback tool just for beta testers. See [Apple's TestFlight guide](https://developer.apple.com/testflight/) for instructions.
 
   - type: checkboxes
     id: confirmation
