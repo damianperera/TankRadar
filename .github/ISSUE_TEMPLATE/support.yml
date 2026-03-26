@@ -9,7 +9,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## 👋 Welcome! We're here to help.
+        👋 Welcome! We're here to help.
         Please fill out this form as completely as possible — the more detail you provide, the faster we can fix the issue for you.
 
         > 🌍 **Please write in English** — our support team only speaks English, so we want to make sure we fully understand your issue and can help you as best we can! If English isn't your first language, don't worry at all — simple sentences are perfectly fine, and tools like [Google Translate](https://translate.google.com) and [DeepL](https://www.deepl.com/translator) can help.
@@ -51,7 +51,7 @@ body:
     attributes:
       value: |
         <br>
-        ## 🐛 Describe the Problem
+        🐛 Describe the Problem
 
   - type: textarea
     id: description
@@ -105,7 +105,7 @@ body:
     attributes:
       value: |
         <br>
-        ## 📱 Your Device & App Info
+        📱 Your Device & App Info
 
   - type: input
     id: device_model
@@ -140,7 +140,7 @@ body:
     attributes:
       value: |
         <br>
-        ## 📸 Screenshots & Screen Recordings
+        📸 Screenshots & Screen Recordings
 
         A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.
 
@@ -164,7 +164,7 @@ body:
     attributes:
       value: |
         <br>
-        ## ❌ Error Messages
+        ❌ Error Messages
 
   - type: textarea
     id: error_message
@@ -182,7 +182,7 @@ body:
     attributes:
       value: |
         <br>
-        ## 💬 Additional Context
+        💬 Additional Context
 
   - type: textarea
     id: additional
@@ -208,7 +208,7 @@ body:
     attributes:
       value: |
         <br>
-        ## ✔️ Final Confirmation
+        ✔️ Final Confirmation
 
   - type: checkboxes
     id: confirmation
