@@ -1,4 +1,4 @@
-# <img width="25" alt="icon" src="https://github.com/user-attachments/assets/23ee3a34-ef9d-46b6-a975-36f5c92c0ac3" /> Tank Radar 
+# <img width="25" alt="icon" src="./images/icon.png" /> Tank Radar 
 Real-time fuel prices with CarPlay support in Germany, Austria and Italy. Find the cheapest station near you and navigate hands-free.
 
 <div align="center">
