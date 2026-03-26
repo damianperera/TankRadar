@@ -7,7 +7,6 @@ assignees:
 body:
 
   - type: markdown
-      - type: markdown
     attributes:
       value: |
         ## 👋 Welcome! We're here to help.
