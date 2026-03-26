@@ -250,6 +250,8 @@
       border-radius: 26px;
       overflow: hidden;
       box-shadow: 0 40px 100px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.07);
+      gap: 6px;                          /* ← add this */
+      background: rgba(255,255,255,.04); /* ← gap fill colour matches surface */
     }
     .screenshots-inner img {
       flex: 1 1 0;
@@ -435,6 +437,19 @@
       padding: 28px 24px;
       color: var(--text-subtle); font-size: .82rem;
       border-top: 1px solid var(--surface-border);
+    }
+
+    footer a {
+      color: var(--text-subtle);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(100,116,139,.3);
+      padding-bottom: 1px;
+      transition: color .2s, border-color .2s;
+    }
+    
+    footer a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
     }
 
     /* ── Animations ── */
