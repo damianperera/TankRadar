@@ -22,7 +22,7 @@ body:
     attributes:
       value: |
         <br>
-        ## ✅ Before You Submit
+        ✅ Before You Submit
 
   - type: checkboxes
     id: preflight
