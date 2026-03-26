@@ -2,13 +2,13 @@
 Real-time fuel prices with CarPlay support in Germany, Austria and Italy. Find the cheapest station near you and navigate hands-free.
 
 <div align="center">
-  <img width="20%" alt="ios_1_1" src="https://github.com/user-attachments/assets/b316010d-8055-4485-a059-095e2c50fc97" />
+  <img width="20%" alt="ios_1_1" src="./images/banner-1.png" />
   &nbsp;&nbsp;
-  <img width="20%" alt="ios_1_2" src="https://github.com/user-attachments/assets/feada48e-0910-4f1a-bfc6-f412898cb931" />
+  <img width="20%" alt="ios_1_2" src="./images/banner-2.png" />
   &nbsp;&nbsp;
-  <img width="20%" alt="ios_1_3" src="https://github.com/user-attachments/assets/825fdb3b-26b9-42f5-a0b1-89726029ac7d" />
+  <img width="20%" alt="ios_1_3" src="./images/banner-3.png" />
   &nbsp;&nbsp;
-  <img width="20%" alt="ios_1_4" src="https://github.com/user-attachments/assets/cdc791b0-55d5-46f8-8a60-a036eeed6f81" />
+  <img width="20%" alt="ios_1_4" src="./images/banner-4.png" />
 </div>
 
 Tank Radar shows you real-time fuel prices at stations near you in Germany, Austria and Italy - with full CarPlay support so you can find the best deal right from your car's display.
