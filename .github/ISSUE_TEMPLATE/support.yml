@@ -1,0 +1,197 @@
+name: "🛟 Support Request / Bug Report"
+description: "Having trouble with the app? Fill out this form and we'll help you out."
+title: "[Support] "
+labels: ["support", "needs-triage"]
+assignees:
+  - damianperera
+body:
+
+  - type: markdown
+      - type: markdown
+    attributes:
+      value: |
+        ## 👋 Welcome! We're here to help.
+        Please fill out this form as completely as possible — the more detail you provide, the faster we can fix the issue for you.
+
+        > 🌍 **Please write in English** — our support team only speaks English, so we want to make sure we fully understand your issue and can help you as best we can! If English isn't your first language, don't worry at all — simple sentences are perfectly fine, and tools like [Google Translate](https://translate.google.com) and [DeepL](https://www.deepl.com/translator) can help.
+
+        > 💡 **Tip:** You can drag and drop screenshots or screen recordings directly into any text box below!
+
+  # ── Before You Submit ──────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: "## ✅ Before You Submit"
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: "Please confirm you've already tried the following:"
+      description: "These steps fix most common issues. Check everything you've already attempted."
+      options:
+        - label: "I fully closed the app and reopened it"
+          required: false
+        - label: "I restarted my iPhone"
+          required: false
+        - label: "I deleted the app and reinstalled it fresh from the App Store"
+          required: false
+        - label: "I checked that my internet connection is working"
+          required: false
+        - label: "I made sure I have the latest version of the app installed (check the App Store)"
+          required: false
+        - label: "I made sure my iPhone is running the latest version of iOS (Settings → General → Software Update)"
+          required: false
+        - label: "I searched existing issues to make sure this hasn't been reported already"
+          required: true
+
+  # ── Describe the Problem ────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: "## 🐛 Describe the Problem"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "What's going wrong?"
+      description: "Describe the issue in as much detail as you can. Don't worry about being too technical — just explain what you see happening."
+      placeholder: |
+        Example: "When I tap the 'Login' button, the app just freezes for a few seconds and then shows a blank white screen. Nothing happens after that."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "What did you expect to happen?"
+      description: "Tell us what you wanted or expected the app to do."
+      placeholder: |
+        Example: "I expected to be logged in and taken to the home screen."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "How can we reproduce the issue?"
+      description: "Walk us through the exact steps to make the problem happen. Be as specific as possible."
+      placeholder: |
+        Step 1: Open the app
+        Step 2: Tap on "Login"
+        Step 3: Enter my email and password
+        Step 4: Tap "Sign In"
+        Step 5: The screen goes blank
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: "How often does this happen?"
+      options:
+        - "Every time (always reproducible)"
+        - "Most of the time"
+        - "Sometimes (random)"
+        - "Only happened once"
+    validations:
+      required: true
+
+  # ── Device & App Info ───────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: "## 📱 Your Device & App Info"
+
+  - type: input
+    id: device_model
+    attributes:
+      label: "iPhone model"
+      description: "You can find this under Settings → General → About → Model Name."
+      placeholder: "e.g. iPhone 15 Pro"
+    validations:
+      required: true
+
+  - type: input
+    id: os_version
+    attributes:
+      label: "iOS version"
+      description: "Go to Settings → General → About → iOS Version."
+      placeholder: "e.g. iOS 18.3.2"
+    validations:
+      required: true
+
+  - type: input
+    id: app_version
+    attributes:
+      label: "App version"
+      description: "Find this in the App Store on your iPhone — tap your profile picture, scroll to the app under 'Updated Recently', and note the version number."
+      placeholder: "e.g. 2.3.1"
+    validations:
+      required: true
+
+  # ── Screenshots & Recordings ────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 📸 Screenshots & Screen Recordings
+
+        A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.
+
+        - **Screenshot:** Press the **Side Button + Volume Up** at the same time. The screenshot will be saved to your Photos app.
+        - **Screen recording:** Swipe down from the top-right corner to open **Control Center**, then tap the **⏺ Record** button. Tap it again to stop. The recording saves to your Photos app.
+
+        > 📎 Drag and drop your files into the text box below, or tap/click the box to browse and upload them.
+
+  - type: textarea
+    id: media
+    attributes:
+      label: "Attach screenshots or recordings here"
+      description: "Drag and drop images or video files directly into this box. You can attach multiple files."
+      placeholder: "👉 Drag & drop your screenshots or screen recordings here..."
+    validations:
+      required: false
+
+  # ── Error Messages ──────────────────────────────────────────────────
+
+  - type: textarea
+    id: error_message
+    attributes:
+      label: "Did you see any error message?"
+      description: "If the app showed you an error message or pop-up, copy and paste the exact text here, or include a screenshot above."
+      placeholder: |
+        Example: "Error: Unable to connect to server. Please try again."
+    validations:
+      required: false
+
+  # ── Additional Context ──────────────────────────────────────────────
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "Anything else we should know?"
+      description: "Any other details that might help — for example: Did this start after an update? Does it only happen on certain WiFi networks? Did it used to work before?"
+      placeholder: "e.g. This started happening after updating to version 2.3.0. It works fine on WiFi but not on mobile data."
+    validations:
+      required: false
+
+  - type: input
+    id: contact
+    attributes:
+      label: "Your email address (optional)"
+      description: "If you'd prefer a direct reply via email rather than a comment on this issue, leave it here."
+      placeholder: "yourname@example.com"
+    validations:
+      required: false
+
+  # ── Final Confirmation ──────────────────────────────────────────────
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: "Final check"
+      options:
+        - label: "I have filled out this form as completely as I can"
+          required: true
+        - label: "I have attached screenshots or a recording (if applicable)"
+          required: false
