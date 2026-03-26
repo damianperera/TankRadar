@@ -136,17 +136,17 @@ body:
   # ── Screenshots & Recordings ────────────────────────────────────────
 
   - type: markdown
-  attributes:
-    value: |
-      <h2>📸 Screenshots &amp; Screen Recordings</h2>
-      <p>A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.</p>
-      <ul>
-        <li><strong>Screenshot:</strong> Press the <strong>Side Button + Volume Up</strong> at the same time. The screenshot will be saved to your Photos app.</li>
-        <li><strong>Screen recording:</strong> Swipe down from the top-right corner to open <strong>Control Center</strong>, then tap the <strong>⏺ Record</strong> button. Tap it again to stop. The recording saves to your Photos app.</li>
-      </ul>
-
-      > [!TIP]
-      > 📎 Drag and drop your files into the text box below, or tap/click the box to browse and upload them.
+    attributes:
+      value: |
+        <h2>📸 Screenshots &amp; Screen Recordings</h2>
+        <p>A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.</p>
+        <ul>
+          <li><strong>Screenshot:</strong> Press the <strong>Side Button + Volume Up</strong> at the same time. The screenshot will be saved to your Photos app.</li>
+          <li><strong>Screen recording:</strong> Swipe down from the top-right corner to open <strong>Control Center</strong>, then tap the <strong>⏺ Record</strong> button. Tap it again to stop. The recording saves to your Photos app.</li>
+        </ul>
+  
+        > [!TIP]
+        > 📎 Drag and drop your files into the text box below, or tap/click the box to browse and upload them.
 
   - type: textarea
     id: media
