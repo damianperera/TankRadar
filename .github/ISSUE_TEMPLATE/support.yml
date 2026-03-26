@@ -7,16 +7,16 @@ assignees:
 body:
 
   - type: markdown
-  attributes:
-    value: |
-      <h1>👋 Welcome! We're here to help.</h1>
-      <p>Please fill out this form as completely as possible — the more detail you provide, the faster we can fix the issue for you.</p>
-
-      > [!IMPORTANT]
-      > 🌍 **Please write in English** — our support team only speaks English, so we want to make sure we fully understand your issue and can help you as best we can! If English isn't your first language, don't worry at all — simple sentences are perfectly fine, and tools like [Google Translate](https://translate.google.com) and [DeepL](https://www.deepl.com/translator) can help.
-
-      > [!TIP]
-      > 💡 You can drag and drop screenshots or screen recordings directly into any text box below!
+    attributes:
+      value: |
+        <h1>👋 Welcome! We're here to help.</h1>
+        <p>Please fill out this form as completely as possible — the more detail you provide, the faster we can fix the issue for you.</p>
+  
+        > [!IMPORTANT]
+        > 🌍 **Please write in English** — our support team only speaks English, so we want to make sure we fully understand your issue and can help you as best we can! If English isn't your first language, don't worry at all — simple sentences are perfectly fine, and tools like [Google Translate](https://translate.google.com) and [DeepL](https://www.deepl.com/translator) can help.
+  
+        > [!TIP]
+        > 💡 You can drag and drop screenshots or screen recordings directly into any text box below!
 
   # ── Before You Submit ──────────────────────────────────────────────
 
