@@ -219,9 +219,9 @@
       color: var(--text-muted);
       padding: 6px 14px; border-radius: 999px;
       font-size: .82rem; font-weight: 500;
-      display: inline-flex;        /* ← add */
-      align-items: center;         /* ← add */
-      gap: 6px;                    /* ← add */
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     /* ── Screenshots ── */
@@ -230,14 +230,12 @@
       padding: 0 0 0;
       overflow: hidden;
     }
-    /* Fade bottom edge into the page background */
     .screenshots-section::after {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
       background: linear-gradient(to bottom, transparent, var(--bg));
       pointer-events: none; z-index: 2;
     }
-    /* Subtle vignette on left/right edges */
     .screenshots-section::before {
       content: '';
       position: absolute; inset: 0;
@@ -249,38 +247,32 @@
       pointer-events: none; z-index: 2;
     }
 
-    /* The 4 images form one continuous panoramic artwork - keep them flush */
     .screenshots {
       display: flex;
       justify-content: center;
-      align-items: flex-end;        /* anchor at bottom so they share a baseline */
-      gap: 0;                        /* no gap - they're one split image */
+      align-items: flex-end;
+      gap: 0;
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 32px;
     }
     .screenshots img {
-      /* each image is one quarter; together they fill ~95% of the container */
       flex: 1 1 0;
       min-width: 0;
       max-width: 260px;
       width: 100%;
       display: block;
-      /* keep the natural proportions and let height grow naturally */
       height: auto;
-      /* slight rounding only on the outermost corners */
       border-radius: 0;
       box-shadow: none;
       transition: filter .3s ease;
     }
-    /* round the two outer edges only */
     .screenshots img:first-child { border-radius: 22px 0 0 22px; }
     .screenshots img:last-child  { border-radius: 0 22px 22px 0; }
 
     .screenshots:hover img { filter: brightness(.72); }
     .screenshots img:hover  { filter: brightness(1) !important; }
 
-    /* wrap in a card so the shadow sits under the full panorama */
     .screenshots-frame {
       max-width: 1100px;
       margin: 0 auto;
@@ -293,8 +285,8 @@
       border-radius: 26px;
       overflow: hidden;
       box-shadow: 0 40px 100px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.07);
-      gap: 15px;                          /* ← add this */
-      background: rgba(255,255,255,.04); /* ← gap fill colour matches surface */
+      gap: 15px;
+      background: rgba(255,255,255,.04);
     }
     .screenshots-inner img {
       flex: 1 1 0;
@@ -345,7 +337,6 @@
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 16px;
     }
-    /* Make the last card (6th) span full width on a 2-column row so it's centred */
     @media (min-width: 900px) {
       .cards { grid-template-columns: repeat(3, 1fr); }
     }
@@ -363,7 +354,6 @@
       border-color: rgba(96,165,250,.22);
       box-shadow: 0 16px 48px rgba(0,0,0,.35), 0 0 0 1px rgba(96,165,250,.1);
     }
-    /* Highlight card - amber tint for the rental car one */
     .card.featured {
       border-color: rgba(245,158,11,.2);
       background: linear-gradient(135deg, rgba(245,158,11,.07), rgba(251,146,60,.04));
@@ -388,7 +378,6 @@
     .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
     .card p  { font-size: .9rem; color: var(--text-muted); line-height: 1.7; }
 
-    /* optional "pill" label on a card */
     .card-label {
       display: inline-flex; align-items: center; gap: 5px;
       background: rgba(245,158,11,.12);
@@ -449,7 +438,7 @@
     
     .lang-pill .flag-img {
       width: 22px; height: 22px;
-      margin: 0; /* override block centering — inline context */
+      margin: 0;
       flex-shrink: 0;
     }
     
@@ -532,7 +521,68 @@
     .reveal-d3 { transition-delay: .3s; }
     .reveal-d4 { transition-delay: .4s; }
 
+    /* ── Privacy Policy Overlay ── */
+    .overlay-section {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(7, 11, 20, 0.8);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      opacity: 0; visibility: hidden;
+      display: flex; justify-content: center; align-items: flex-end;
+      transition: opacity .4s ease, visibility .4s ease;
+    }
+    .overlay-backdrop {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      cursor: default;
+    }
+    .overlay-content {
+      position: relative;
+      background: var(--bg-2);
+      border-top: 1px solid var(--surface-border);
+      border-left: 1px solid var(--surface-border);
+      border-right: 1px solid var(--surface-border);
+      width: 100%; max-width: 800px; max-height: 85vh;
+      border-radius: 28px 28px 0 0;
+      padding: 40px 32px;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 -20px 60px rgba(0,0,0,0.5);
+    }
+    .overlay-section:target { opacity: 1; visibility: visible; }
+    .overlay-section:target .overlay-content { transform: translateY(0); }
+
+    .close-btn {
+      position: sticky; top: 0; float: right; z-index: 10;
+      background: var(--surface); color: var(--text);
+      border: 1px solid var(--surface-border);
+      padding: 8px 18px; border-radius: 999px;
+      font-size: .85rem; font-weight: 700; text-decoration: none;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: background .2s, transform .2s;
+    }
+    .close-btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); }
+
+    .policy-text {
+      color: var(--text-muted); font-size: .95rem; line-height: 1.7;
+      clear: both; margin-top: -10px;
+    }
+    .policy-text h2 { color: var(--text); font-size: 1.8rem; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .policy-text h3 { color: var(--text); font-size: 1.2rem; margin: 32px 0 12px; font-weight: 700; }
+    .policy-text p { margin-bottom: 16px; }
+    .policy-text ul { padding-left: 20px; margin-bottom: 20px; }
+    .policy-text li { margin-bottom: 8px; }
+    .policy-text strong { color: var(--text); }
+
     /* ── Responsive ── */
+    @media (min-width: 768px) {
+      .overlay-section { align-items: center; padding: 40px; }
+      .overlay-content {
+        border-radius: 24px; border-bottom: 1px solid var(--surface-border);
+        transform: translateY(40px) scale(0.98); max-height: 90vh;
+      }
+      .overlay-section:target .overlay-content { transform: translateY(0) scale(1); }
+    }
+
     @media (max-width: 640px) {
       nav { padding: 12px 20px; }
       .nav-appstore .nav-label { display: none; }
@@ -705,8 +755,75 @@
   </div>
 
   <footer>
-    <p>&copy; 2026 Damian Perera · All rights reserved · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">End User License Agreement (EULA)</p>
+    <p>&copy; 2026 Damian Perera · All rights reserved · <a href="#privacy-policy">Privacy Policy</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">End User License Agreement (EULA)</a></p>
   </footer>
+
+  <!-- CSS-Only Hidden Privacy Policy Overlay -->
+  <div id="privacy-policy" class="overlay-section">
+    <!-- Clicking outside the content box closes it by linking to a dead hash segment (#!) to prevent scrolling to top -->
+    <a href="#!" class="overlay-backdrop" aria-label="Close Privacy Policy"></a>
+    
+    <div class="overlay-content">
+      <a href="#!" class="close-btn">Close</a>
+      
+      <div class="policy-text">
+        <h2>Privacy Policy for Tank Radar</h2>
+        <p><strong>Effective Date:</strong> April 2, 2026</p>
+
+        <p>This Privacy Policy explains how I, Damian Perera ("I", "me", or "my"), an individual developer based in Bavaria, Germany, collect, use, and protect your information when you use the Tank Radar iOS application ("the App"). I am committed to protecting your personal data and complying with the General Data Protection Regulation (GDPR).</p>
+
+        <h3>Data Controller</h3>
+        <p>I am the Data Controller responsible for your personal information. If you have any questions or concerns regarding this policy, you can contact me at:<br>
+        <code>support @ perera.io</code>
+        <br>
+        Bavaria, Germany</p>
+
+        <h3>Information I Collect and How I Use It</h3>
+        <p>Tank Radar is designed to be privacy-centric. The only personal data I process is your device's geographical location.</p>
+        <ul>
+          <li>I request your precise or approximate location via iOS system permissions.</li>
+          <li>This location data is used exclusively in real-time to query third-party APIs and display nearby gas stations.</li>
+          <li>Your location data is not linked to your identity, device ID, or Apple ID.</li>
+          <li>I process this data based on your explicit consent provided through the iOS location permission prompt, which you can revoke at any time in your device settings.</li>
+        </ul>
+
+        <h3>Data Storage and Security</h3>
+        <p>I do not operate backend servers that store your personal information.</p>
+        <ul>
+          <li>Location data is processed temporarily in the device's memory to fulfill the API request.</li>
+          <li>I do not transmit, log, or store your location history, searches, or any other personal data on my servers.</li>
+          <li>Because I do not store your data, the risk of data breaches affecting your personal information through my systems is virtually eliminated.</li>
+        </ul>
+
+        <h3>External APIs and Third-Party Services</h3>
+        <p>To provide the App's core functionality, I interact with specific third-party services and fuel pricing APIs (such as Tankerkönig, E-Control, and DSTMRK).</p>
+        <ul>
+          <li><strong>Data Transmission:</strong> I securely transmit your current coordinates to these external API providers to retrieve nearby station data. These external providers receive the coordinate data anonymously and do not receive any identifying information about you or your device from me.</li>
+          <li><strong>Limitation of Liability:</strong> I do not own or control these external APIs. I am not liable or responsible for how these third-party providers collect, use, store, or protect any data transmitted to them.</li>
+          <li><strong>Third-Party Privacy Policies:</strong> Any information processed by these external services is governed solely by their respective privacy policies. I encourage you to review the privacy policies of these providers if you have concerns about their data practices.</li>
+          <li><strong>Payment Processing:</strong> The App is purchased through the Apple App Store. Apple handles all payment processing, and I do not have access to your credit card details, payment history, or Apple account information.</li>
+        </ul>
+
+        <h3>Analytics and Tracking</h3>
+        <p>Tank Radar currently does not use any tracking, analytics, or crash reporting SDKs. I do not monitor your behavior within the App. If I decide to introduce analytics or tracking features in the future to improve the App, I will update this Privacy Policy accordingly and request your explicit consent as required by the GDPR before collecting any such data.</p>
+
+        <h3>Your GDPR Rights</h3>
+        <p>Even though I do not store your personal data, you possess the following rights under the GDPR regarding any data you provide:</p>
+        <ul>
+          <li>Right to be informed about how your data is processed.</li>
+          <li>Right to access the personal data I hold about you.</li>
+          <li>Right to request correction or deletion of your data.</li>
+          <li>Right to restrict or object to my processing of your data.</li>
+          <li>Right to data portability.</li>
+          <li>Right to withdraw consent for location access via your iOS settings at any time.</li>
+        </ul>
+        <p>Because no user data is stored on my servers, requests for access, correction, or deletion are automatically satisfied, as there is no data to retrieve or erase.</p>
+
+        <h3>Changes to This Privacy Policy</h3>
+        <p>I may update this Privacy Policy from time to time to reflect changes in my practices or legal obligations. I will notify you of any significant changes by updating the "Effective Date" at the top of this document and, where appropriate, through an in-app notification.</p>
+      </div>
+    </div>
+  </div>
 
   <script>
     const io = new IntersectionObserver((entries) => {
