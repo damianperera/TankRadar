@@ -39,7 +39,6 @@
   <meta property="og:locale:alternate" content="it_IT" />
   
   <!-- ── Twitter / X Card ───────────────────────── -->
-  <!-- "app" card type renders a native App Store button directly in the tweet -->
   <meta name="twitter:card"        content="app" />
   <meta name="twitter:title"       content="Tank Radar | Real-Time Fuel Prices" />
   <meta name="twitter:description" content="Real-time fuel prices with CarPlay support across Germany, Austria and Italy. Navigate to the cheapest station, hands-free." />
@@ -50,7 +49,6 @@
   <meta name="twitter:app:url:iphone"   content="https://apps.apple.com/us/app/tank-radar/id6761129717" />
   
   <!-- ── Apple Smart App Banner ─────────────────── -->
-  <!-- Shows a native "Open in App Store" banner on iOS Safari -->
   <meta name="apple-itunes-app" content="app-id=6761129717" />
   
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -582,6 +580,34 @@
     .policy-text li { margin-bottom: 8px; }
     .policy-text strong { color: var(--text); }
 
+    /* ── Policy notice boxes ── */
+    .policy-notice {
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 4px 0 20px;
+      font-size: .9rem;
+      line-height: 1.65;
+    }
+    .policy-notice p { margin-bottom: 8px; }
+    .policy-notice p:last-child { margin-bottom: 0; }
+    .policy-notice ul { margin-bottom: 0; }
+    .policy-notice-blue {
+      background: rgba(96,165,250,.08);
+      border: 1px solid rgba(96,165,250,.18);
+    }
+    .policy-notice-amber {
+      background: rgba(245,158,11,.07);
+      border: 1px solid rgba(245,158,11,.18);
+    }
+    .policy-notice-title {
+      font-weight: 700; margin-bottom: 6px !important;
+      color: var(--text) !important;
+      font-size: .88rem;
+      letter-spacing: .01em;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .policy-notice-title svg { flex-shrink: 0; }
+
     /* ── Responsive ── */
     @media (min-width: 768px) {
       .overlay-section { align-items: center; padding: 40px; }
@@ -599,6 +625,72 @@
       .screenshots-inner { border-radius: 16px; }
       .screenshots-frame { padding: 0 16px 60px; }
     }
+
+    /* ── Policy tables ── */
+    .policy-table-wrap {
+      overflow-x: auto; margin: 12px 0 20px;
+      border-radius: 12px; border: 1px solid rgba(255,255,255,.08);
+    }
+    .policy-table-wrap table { border-collapse: collapse; width: 100%; font-size: .86rem; }
+    .policy-table-wrap thead { background: rgba(255,255,255,.04); }
+    .policy-table-wrap th {
+      text-align: left; padding: 10px 14px; white-space: nowrap;
+      font-weight: 700; font-size: .72rem; text-transform: uppercase;
+      letter-spacing: .06em; color: var(--text-subtle);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .policy-table-wrap td {
+      padding: 10px 14px; vertical-align: top; color: var(--text-muted);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      line-height: 1.55;
+    }
+    .policy-table-wrap tr:last-child td { border-bottom: none; }
+    .policy-table-wrap tbody tr:hover { background: rgba(255,255,255,.025); }
+    .policy-table-wrap td strong { color: var(--text); }
+    .policy-badge {
+      display: inline-block; padding: 2px 9px; border-radius: 999px;
+      font-size: .72rem; font-weight: 600; white-space: nowrap;
+    }
+    .policy-badge-blue {
+      background: rgba(96,165,250,.12); border: 1px solid rgba(96,165,250,.22);
+      color: var(--primary);
+    }
+    .policy-badge-green {
+      background: rgba(52,211,153,.1); border: 1px solid rgba(52,211,153,.2);
+      color: #34D399;
+    }
+
+    /* ── GDPR rights grid ── */
+    .policy-rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr));
+      gap: 10px; margin: 4px 0 20px;
+    }
+    .policy-right-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px; padding: 14px 15px;
+    }
+    .policy-right-card-title {
+      font-weight: 700; font-size: .84rem; color: var(--text);
+      margin-bottom: 5px; display: flex; align-items: center; gap: 7px;
+    }
+    .policy-right-card-title svg { color: var(--primary); flex-shrink: 0; }
+    .policy-right-card p {
+      font-size: .81rem; color: var(--text-subtle);
+      margin: 0; line-height: 1.55;
+    }
+    .policy-right-card p a { font-size: .81rem; }
+
+    /* ── Policy links ── */
+    .policy-text a {
+      color: #93C5FD; font-weight: 500;
+      text-decoration: underline; text-decoration-style: dotted;
+      text-underline-offset: 3px;
+      border-bottom: none;
+      transition: color .2s, text-decoration-style .2s;
+    }
+    .policy-text a:hover { color: var(--text); text-decoration-style: solid; }
   </style>
 </head>
 <body>
@@ -639,7 +731,7 @@
     </div>
   </header>
 
-  <!-- Screenshots - treated as one continuous panoramic image -->
+  <!-- Screenshots -->
   <div class="screenshots-section">
     <div class="screenshots-frame">
       <div class="screenshots-inner">
@@ -674,7 +766,7 @@
 
       <div class="card featured reveal reveal-d3">
         <div class="card-icon">⏱️</div>
-        <h3>On-Device ETA & Live Updates</h3>
+        <h3>On-Device ETA &amp; Live Updates</h3>
         <p>Estimated travel time to each station is calculated directly on your device. Pull to refresh anytime to get the very latest prices.</p>
       </div>
 
@@ -730,7 +822,6 @@
           <span class="fuel-tag">LPG</span>
           <span class="fuel-tag">CNG</span>
         </div>
-
       </div>
     </div>
   </div>
@@ -764,12 +855,11 @@
   </div>
 
   <footer>
-    <p>&copy; 2026 Damian Perera · All rights reserved · <a href="#privacy-policy">Privacy Policy</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">End User License Agreement (EULA)</a></p>
+    <p>&copy; 2026 Damian Perera &middot; All rights reserved &middot; <a href="#privacy-policy">Privacy Policy</a> &middot; <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">End User License Agreement (EULA)</a></p>
   </footer>
 
-  <!-- CSS-Only Hidden Privacy Policy Overlay -->
+  <!-- Privacy Policy Overlay -->
   <div id="privacy-policy" class="overlay-section">
-    <!-- Clicking outside the content box closes it by linking to a dead hash segment (#!) to prevent scrolling to top -->
     <a href="#!" class="overlay-backdrop" aria-label="Close Privacy Policy"></a>
     
     <div class="overlay-content">
@@ -777,15 +867,17 @@
       
       <div class="policy-text">
         <h2>Privacy Policy for Tank Radar</h2>
-        <p><strong>Effective Date:</strong> April 2, 2026</p>
+        <p><strong>Effective Date:</strong> April 6, 2026</p>
 
         <p>This Privacy Policy explains how I, Damian Perera ("I", "me", or "my"), an individual developer based in Bavaria, Germany, collect, use, and protect your information when you use the Tank Radar iOS application ("the App"). I am committed to protecting your personal data and complying with the General Data Protection Regulation (GDPR).</p>
 
         <h3>Data Controller</h3>
-        <p>I am the Data Controller responsible for your personal information. If you have any questions or concerns regarding this policy, you can contact me at: <code>support @ perera.io</code></p>
+        <p>I am the Data Controller responsible for your personal information under the GDPR (Art. 4(7) GDPR). For general questions, bug reports, or feature requests, please <a href="https://github.com/damianperera/TankRadar/issues/new/choose" target="_blank" rel="noopener noreferrer">open a ticket on GitHub</a>. For privacy-specific enquiries or to exercise your rights under this policy, you may also reach me by email at: <code>support&#64;perera&#46;io</code></p>
 
         <h3>Information I Collect and How I Use It</h3>
-        <p>Tank Radar is designed to be privacy-centric. The only personal data I process is your device's geographical location.</p>
+        <p>Tank Radar collects two categories of data: your device's geographical location (to provide core functionality) and anonymised usage analytics (to improve the App). Both are processed with care and in full respect of your privacy.</p>
+
+        <p><strong>Location Data</strong></p>
         <ul>
           <li>I request your precise or approximate location via iOS system permissions.</li>
           <li>This location data is used exclusively in real-time to query third-party APIs and display nearby gas stations.</li>
@@ -793,40 +885,203 @@
           <li>I process this data based on your explicit consent provided through the iOS location permission prompt, which you can revoke at any time in your device settings.</li>
         </ul>
 
+        <p><strong>Analytics Data (Google Analytics for Firebase)</strong></p>
+        <ul>
+          <li>I use Google Analytics for Firebase to collect anonymised usage data to understand how the App is used and to improve its features and performance.</li>
+          <li>This data is collected only if you explicitly consent when prompted by the App.</li>
+          <li>The legal basis for processing analytics data is your explicit consent (Art. 6(1)(a) GDPR).</li>
+          <li>You can withdraw this consent at any time via the App's settings or your iOS device settings.</li>
+        </ul>
+
+        <p>The following table summarises all data processed by the App:</p>
+        <div class="policy-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>Purpose</th>
+                <th>Legal Basis</th>
+                <th>Retained By</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Precise / approximate location</strong></td>
+                <td>Fetch nearby fuel station data from APIs</td>
+                <td><span class="policy-badge policy-badge-blue">Consent</span></td>
+                <td>Not stored - processed in-memory only</td>
+              </tr>
+              <tr>
+                <td><strong>App Instance ID</strong></td>
+                <td>Anonymised analytics session identifier</td>
+                <td><span class="policy-badge policy-badge-blue">Consent</span></td>
+                <td>Google (Firebase)</td>
+              </tr>
+              <tr>
+                <td><strong>IDFV (Identifier for Vendor)</strong></td>
+                <td>Unique installation counting, anonymised</td>
+                <td><span class="policy-badge policy-badge-blue">Consent</span></td>
+                <td>Google (Firebase)</td>
+              </tr>
+              <tr>
+                <td><strong>Device info</strong> (model, OS version)</td>
+                <td>Compatibility and crash analysis</td>
+                <td><span class="policy-badge policy-badge-blue">Consent</span></td>
+                <td>Google (Firebase)</td>
+              </tr>
+              <tr>
+                <td><strong>App usage events</strong> (screen views, interactions)</td>
+                <td>Feature usage analysis</td>
+                <td><span class="policy-badge policy-badge-blue">Consent</span></td>
+                <td>Google (Firebase)</td>
+              </tr>
+              <tr>
+                <td><strong>Approximate region</strong> (country/city, derived from IP - IP itself not stored by Google)</td>
+                <td>Geographic usage analysis</td>
+                <td><span class="policy-badge policy-badge-blue">Consent</span></td>
+                <td>Google (Firebase)</td>
+              </tr>
+              <tr>
+                <td><strong>App version &amp; language</strong></td>
+                <td>Version adoption and localisation analysis</td>
+                <td><span class="policy-badge policy-badge-blue">Consent</span></td>
+                <td>Google (Firebase)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="policy-notice policy-notice-blue">
+          <p class="policy-notice-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> No Personally Identifiable Information (PII)</p>
+          <p>Google's terms expressly prohibit sending any Personally Identifiable Information (PII) to Firebase. No names, email addresses, Apple IDs, or precise GPS coordinates are ever transmitted to Google Analytics.</p>
+        </div>
+
         <h3>Data Storage and Security</h3>
         <p>I do not operate backend servers that store your personal information.</p>
         <ul>
-          <li>Location data is processed temporarily in the device's memory to fulfill the API request.</li>
-          <li>I do not transmit, log, or store your location history, searches, or any other personal data on my servers.</li>
-          <li>Because I do not store your data, the risk of data breaches affecting your personal information through my systems is virtually eliminated.</li>
+          <li>Location data is processed temporarily in the device's memory to fulfil the API request and is never written to disk, transmitted to me, or logged anywhere.</li>
+          <li>Analytics data, if you have consented to it, is transmitted to and stored by Google on Firebase infrastructure in accordance with Google's security and data retention policies.</li>
+          <li>I do not transmit, log, or store your location history, searches, or any other personal data on my own servers.</li>
+          <li>Because I do not operate data stores myself, the risk of data breaches affecting your personal information through my systems is virtually eliminated.</li>
         </ul>
 
+        <div class="policy-notice policy-notice-blue">
+          <p class="policy-notice-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Google's Data Retention</p>
+          <p>If you have consented to analytics, Google Firebase retains analytics data according to the retention period configured in the Firebase console. You can request deletion of your analytics data at any time by <a href="https://github.com/damianperera/TankRadar/issues/new/choose" target="_blank" rel="noopener noreferrer">opening a support ticket</a>, and I will submit a deletion request via the Firebase User Deletion API on your behalf.</p>
+        </div>
+
         <h3>External APIs and Third-Party Services</h3>
-        <p>To provide the App's core functionality, I interact with specific third-party services and fuel pricing APIs (such as Tankerkönig, E-Control, and DSTMRK).</p>
+        <p>To provide the App's core functionality and to analyse usage, I interact with the following third-party services:</p>
+        <div class="policy-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Purpose</th>
+                <th>Data Sent</th>
+                <th>Privacy Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tankerkönig</strong></td>
+                <td>German fuel price data</td>
+                <td>Anonymous coordinates</td>
+                <td><a href="https://creativecommons.tankerkoenig.de" target="_blank" rel="noopener noreferrer">tankerkoenig.de</a></td>
+              </tr>
+              <tr>
+                <td><strong>E-Control</strong></td>
+                <td>Austrian fuel price data</td>
+                <td>Anonymous coordinates</td>
+                <td><a href="https://www.e-control.at/datenschutz" target="_blank" rel="noopener noreferrer">e-control.at</a></td>
+              </tr>
+              <tr>
+                <td><strong>DSTMRK</strong></td>
+                <td>Additional fuel pricing data</td>
+                <td>Anonymous coordinates</td>
+                <td>Available on provider's site</td>
+              </tr>
+              <tr>
+                <td><strong>Google Analytics for Firebase</strong></td>
+                <td>App usage analytics and performance monitoring</td>
+                <td>App Instance ID, IDFV, device info, usage events, approximate region (consent required)</td>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">firebase.google.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>Apple App Store</strong></td>
+                <td>App distribution and payment processing</td>
+                <td>Handled entirely by Apple</td>
+                <td><a href="https://www.apple.com/privacy/" target="_blank" rel="noopener noreferrer">apple.com/privacy</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <ul>
-          <li><strong>Data Transmission:</strong> I securely transmit your current coordinates to these external API providers to retrieve nearby station data. These external providers receive the coordinate data anonymously and do not receive any identifying information about you or your device from me.</li>
-          <li><strong>Limitation of Liability:</strong> I do not own or control these external APIs. I am not liable or responsible for how these third-party providers collect, use, store, or protect any data transmitted to them.</li>
-          <li><strong>Third-Party Privacy Policies:</strong> Any information processed by these external services is governed solely by their respective privacy policies. I encourage you to review the privacy policies of these providers if you have concerns about their data practices.</li>
-          <li><strong>Payment Processing:</strong> The App is purchased through the Apple App Store. Apple handles all payment processing, and I do not have access to your credit card details, payment history, or Apple account information.</li>
+          <li><strong>Data Transmission:</strong> Fuel API providers receive anonymous coordinate data only. They do not receive any identifying information about you or your device from me.</li>
+          <li><strong>Google as Data Processor:</strong> Google operates as a data processor under a Data Processing Agreement (DPA) included in Google's Terms of Service. Google is prohibited from using your Firebase analytics data for its own advertising purposes without your separate consent to Google's own services.</li>
+          <li><strong>Limitation of Liability:</strong> I do not own or control these external services and am not liable for how third-party providers collect, use, or protect data transmitted to them. Their respective privacy policies govern any data they process.</li>
         </ul>
 
         <h3>Analytics and Tracking</h3>
-        <p>Tank Radar currently does not use any tracking, analytics, or crash reporting SDKs. I do not monitor your behavior within the App. If I decide to introduce analytics or tracking features in the future to improve the App, I will update this Privacy Policy accordingly and request your explicit consent as required by the GDPR before collecting any such data.</p>
+        <p>Tank Radar uses <strong>Google Analytics for Firebase</strong> to collect anonymised usage data. This helps me understand which features are used, how the App performs across different devices and regions, and where to focus future improvements.</p>
+
+        <p><strong>What is collected:</strong> App Instance ID, Identifier for Vendor (IDFV), device model and iOS version, App version, language, session duration, screen views, and in-app events (e.g. station viewed, map interaction). Approximate region (country/city level) is derived from your IP address - the IP address itself is not logged or stored by Google.</p>
+
+        <p><strong>What is NOT collected:</strong> Precise GPS coordinates, your name, email, Apple ID, payment information, or any content you personally interact with. Google's terms prohibit the transmission of any Personally Identifiable Information to Firebase.</p>
+
+        <div class="policy-notice policy-notice-amber">
+          <p class="policy-notice-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Consent Required Under GDPR</p>
+          <p>Analytics collection does not begin until you have explicitly consented via the in-app prompt. You may withdraw your consent at any time - analytics collection will stop immediately and no further data will be sent to Firebase.</p>
+        </div>
+
+        <p><strong>How to opt out or withdraw consent:</strong></p>
+        <ul>
+          <li><strong>In-App:</strong> Navigate to <em>Settings → Privacy → Analytics</em> in Tank Radar and toggle analytics off.</li>
+          <li><strong>iOS Settings:</strong> Go to <em>Settings → Privacy &amp; Security → Tracking</em> and disable tracking for Tank Radar.</li>
+          <li><strong>Advertising Identifier:</strong> Go to <em>Settings → Privacy &amp; Security → Apple Advertising</em> and enable "Limit Ad Tracking" to restrict the identifier used by Firebase.</li>
+          <li><strong>Data Deletion:</strong> <a href="https://github.com/damianperera/TankRadar/issues/new/choose" target="_blank" rel="noopener noreferrer">Open a support ticket</a> to request deletion of any analytics data Firebase holds associated with your installation.</li>
+        </ul>
 
         <h3>Your GDPR Rights</h3>
-        <p>Even though I do not store your personal data, you possess the following rights under the GDPR regarding any data you provide:</p>
-        <ul>
-          <li>Right to be informed about how your data is processed.</li>
-          <li>Right to access the personal data I hold about you.</li>
-          <li>Right to request correction or deletion of your data.</li>
-          <li>Right to restrict or object to my processing of your data.</li>
-          <li>Right to data portability.</li>
-          <li>Right to withdraw consent for location access via your iOS settings at any time.</li>
-        </ul>
-        <p>Because no user data is stored on my servers, requests for access, correction, or deletion are automatically satisfied, as there is no data to retrieve or erase.</p>
+        <p>You hold the following rights under the GDPR (Articles 15–22) regarding any data processed in connection with your use of the App:</p>
+        <div class="policy-rights-grid">
+          <div class="policy-right-card">
+            <div class="policy-right-card-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Right to be Informed</div>
+            <p>This policy describes how and why your data is processed.</p>
+          </div>
+          <div class="policy-right-card">
+            <div class="policy-right-card-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Right of Access</div>
+            <p>Request a copy of any personal data held about you, including analytics data stored by Google Firebase.</p>
+          </div>
+          <div class="policy-right-card">
+            <div class="policy-right-card-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Right to Rectification</div>
+            <p>Request correction of any inaccurate personal data held about you.</p>
+          </div>
+          <div class="policy-right-card">
+            <div class="policy-right-card-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Right to Erasure</div>
+            <p><a href="https://github.com/damianperera/TankRadar/issues/new/choose" target="_blank" rel="noopener noreferrer">Open a support ticket</a> to request deletion of your Firebase analytics data - I will action it via the User Deletion API.</p>
+          </div>
+          <div class="policy-right-card">
+            <div class="policy-right-card-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg> Right to Restrict Processing</div>
+            <p>Request that I restrict how your data is processed in certain circumstances.</p>
+          </div>
+          <div class="policy-right-card">
+            <div class="policy-right-card-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Right to Data Portability</div>
+            <p>Request your data in a structured, machine-readable format where technically feasible.</p>
+          </div>
+          <div class="policy-right-card">
+            <div class="policy-right-card-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Right to Withdraw Consent</div>
+            <p>Withdraw consent for location access or analytics at any time via iOS Settings or the in-app Settings page.</p>
+          </div>
+          <div class="policy-right-card">
+            <div class="policy-right-card-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Right to Lodge a Complaint</div>
+            <p>File a complaint with your local DPA - in Germany, the <a href="https://www.bfdi.bund.de" target="_blank" rel="noopener noreferrer">BfDI</a> or the Bavarian State Office for Data Protection Supervision (BayLDA).</p>
+          </div>
+        </div>
+        <p>To exercise any of the above rights, please <a href="https://github.com/damianperera/TankRadar/issues/new/choose" target="_blank" rel="noopener noreferrer">open a support ticket on GitHub</a>. I will respond within 30 days in accordance with GDPR requirements. For location data, no server-side action is needed as it is never stored by me. For analytics data, I will coordinate with Google Firebase on your behalf.</p>
 
         <h3>Changes to This Privacy Policy</h3>
-        <p>I may update this Privacy Policy from time to time to reflect changes in my practices or legal obligations. I will notify you of any significant changes by updating the "Effective Date" at the top of this document and, where appropriate, through an in-app notification.</p>
+        <p>I may update this Privacy Policy from time to time to reflect changes in my practices, the services I use, or legal obligations. I will notify you of any significant changes by updating the "Effective Date" at the top of this document and, where the change materially affects your rights or requires renewed consent, through an in-app notification and a fresh consent prompt.</p>
       </div>
     </div>
   </div>
