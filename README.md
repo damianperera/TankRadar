@@ -11,15 +11,18 @@ Real-time fuel prices with CarPlay support in Germany, Austria and Italy. Find t
   <img width="20%" alt="ios_1_4" src="./images/banner-4.png" />
 </div>
 
-Tank Radar shows you real-time fuel prices at stations near you in Germany, Austria and Italy - with full CarPlay support so you can find the best deal right from your car's display.
+Tank Radar shows you real-time fuel prices at stations near you in Germany, Austria and Italy - with full CarPlay support so you can find the best deal right from your car’s display.
 
 ## CarPlay integration
-View nearby stations and prices directly on your CarPlay screen. Tap to get turn-by-turn directions to the cheapest station; hands-free and distraction-free while driving.
+View nearby stations and prices directly on your CarPlay screen. Access price insights, review your refueling history, and tap to get turn-by-turn directions to the cheapest station; hands-free and distraction-free while driving.
+
+## Price insights and refueling history
+Track your fuel spending with our new Refueling History tab, complete with the ability to edit past record prices. Make informed decisions using the new Price Insights view, featuring revamped station lists and detailed views available on both your iPhone and CarPlay.
 
 ## Find cheaper fuel nearby
 Set your search radius between 5 and 25 km and instantly see stations around you, sorted by price and distance. The best price for your fuel type is clearly highlighted at the top of the list.
 
-## Supports local Fuel types
+## Supports local fuel types
 Tank Radar automatically adapts to the country you are in and shows the fuel types that are actually available there:  
 - **Germany**: E5, E10, Diesel  
 - **Austria**: E5, Diesel, CNG  
