@@ -33,16 +33,13 @@ Tank Radar automatically adapts to the country you are in and shows the fuel typ
 If a fuel type is not sold in the country you are currently driving in, Tank Radar clearly warns you and shows prices for the closest matching fuel type instead.
 
 ## Smart for rental cars and road trips
-Drive different cars often? You can quickly reset your preferred fuel type from the main screen so the app always matches the car you are in.  
-On road trips across borders, Tank Radar updates fuel types and prices automatically as you move into a new country.
+Drive different cars often? You can quickly reset your preferred fuel type from the main screen so the app always matches the car you are in. On road trips across borders, Tank Radar updates fuel types and prices automatically as you move into a new country.
 
 ## On-device ETA and live updates
-Estimated travel time (ETA) to each station is calculated directly on your device, so you can see how long it will take to get there.  
-Pull to refresh anytime for the latest prices.
+Estimated travel time (ETA) to each station is calculated directly on your device, so you can see how long it will take to get there. Pull to refresh anytime for the latest prices.
 
 ## Navigate with your faviouriite Maps app
-Found a good price? Tap any station to open the route in your preferred navigation app, including Google Maps and Waze, and start driving right away —
-or use CarPlay directly.
+Found a good price? Tap any station to open the route in your preferred navigation app, including Google Maps and Waze, and start driving right away - or use CarPlay directly.
 
 ## Supported Languages
 Tank Radar is available in:  
