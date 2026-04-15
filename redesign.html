@@ -86,14 +86,14 @@
     .glow.a { width:220px; height:220px; background:rgba(255,148,71,.32); top:40px; right:40px; }
     .glow.b { width:180px; height:180px; background:rgba(98,216,143,.18); bottom:60px; left:40px; }
     .device { position:absolute; background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.12); box-shadow:var(--shadow); overflow:hidden; }
-    .iphone { width:min(290px, 42vw); border-radius:40px; padding:10px; background:linear-gradient(180deg, #27231f, #141210); }
-    .iphone img { border-radius:32px; width:100%; aspect-ratio:9/19.5; object-fit:cover; }
+    .iphone { width:min(290px, 42vw); border-radius:40px; padding:2%; background:linear-gradient(180deg, #27231f, #141210); }
+    .iphone img { border-radius:25px; width:100%; aspect-ratio:9/19.5; object-fit:cover; }
     .carplay { width:min(520px, 76vw); border-radius:30px; padding:10px; background:linear-gradient(180deg, #241f1b, #13110f); }
     .carplay img { border-radius:22px; width:100%; aspect-ratio:645/377; object-fit:cover; }
-    .hero-station-list { top:120px; left:20px; transform:rotate(-6deg); animation:float1 8s ease-in-out infinite; z-index:2; }
+    .hero-insights { top:120px; left:20px; transform:rotate(-6deg); animation:float1 8s ease-in-out infinite; z-index:1; }
     .hero-station-detail { top:5px; right:10px; transform:rotate(5deg); animation:float2 8.8s ease-in-out infinite; z-index:4; }
     .hero-carplay-list { bottom:30px; right:30px; transform:rotate(-3deg); animation:float4 9s ease-in-out infinite; z-index:4; }
-    .hero-insights { bottom:100px; left:150px; transform:rotate(-3deg); animation:float4 8.4s ease-in-out infinite; z-index:2; }
+    .hero-station-list { bottom:100px; left:150px; transform:rotate(-3deg); animation:float4 8.4s ease-in-out infinite; z-index:2; }
     .badge-note { position:absolute; max-width:230px; padding:14px 16px; border-radius:20px; background:rgba(20,20,20,.64); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(16px); box-shadow:var(--shadow-soft); color:var(--muted); font-size:.95rem; z-index:5; }
     .note-a { top:80px; right:-10px; }
     .note-b { bottom:24px; right:240px; }
@@ -103,21 +103,24 @@
     @keyframes float4 { 0%,100% { transform:rotate(-3deg) translateY(0); } 50% { transform:rotate(-1deg) translateY(-12px); } }
     .section { padding:84px 0; }
     .section-head { display:flex; justify-content:space-between; gap:28px; align-items:flex-end; margin-bottom:34px; }
-    .section-head h2 { font-size: clamp(2.2rem, 4vw, 3.8rem); max-width:12ch; }
+    .section-head h2 { font-size: clamp(2.2rem, 4vw, 3.8rem); max-width:25ch; }
     .section-head p { color:var(--muted); max-width:56ch; }
     .story-grid { display:grid; gap:22px; }
     .story-card { display:grid; grid-template-columns: 1.02fr .98fr; gap:28px; padding:28px; border-radius:34px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow-soft); align-items:center; }
     .story-card.reverse { grid-template-columns:.98fr 1.02fr; }
-    .visual { position:relative; min-height:450px; border-radius:28px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); overflow:hidden; }
+    .visual { position:relative; min-height:450px; border-radius:25px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); overflow:hidden; }
     .visual.dual { padding:18px; display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
     .visual.single { padding:18px; display:flex; align-items:center; justify-content:center; }
     .phone-pair, .carplay-pair { position:relative; min-height:100%; }
-    .vshot { position:absolute; border-radius:28px; overflow:hidden; border:1px solid rgba(255,255,255,.1); box-shadow:var(--shadow-soft); }
-    .vshot.phone-left { width:52%; height:84%; left:4%; top:9%; }
-    .vshot.phone-right { width:52%; height:78%; right:4%; top:14%; }
+    .vshot { position:absolute; border-radius:25px; overflow:hidden; border:none solid rgba(255,255,255,.1); box-shadow:var(--shadow-soft); }
+    .vshot.phone-left { width:75%; height:95%; left:10%; top:5%; }
+    .vshot.phone-right { width:75%; height:95%; right:-20%; top:1%; }
     .vshot.phone-left img, .vshot.phone-right img { width:100%; height:100%; object-fit:cover; }
-    .vshot.carplay-main { width:94%; height:60%; left:3%; top:18%; border-radius:24px; }
-    .vshot.carplay-main img { width:100%; height:100%; object-fit:cover; }
+    .carplay-pair { display: grid; gap:18px; }
+    .carplay-pair.carplay-top { width:100%; height:45%; left:25%; top:10%; border-radius:25px; }
+    .carplay-pair.carplay-bottom { width:100%; height:45%; left:50%; bottom:10%; border-radius:25px; }
+    .vshot.carplay-main { width: 100%; height:40%; left:-5%; top:5%; border-radius:25px; }
+    .vshot.carplay-main img { width:100%; height:100%; object-fit:contain; }
     .story-copy h3 { font-size: clamp(1.8rem, 2vw, 2.4rem); margin-bottom:12px; }
     .story-copy p { color:var(--muted); margin-bottom:20px; }
     .feature-list { display:grid; gap:12px; }
@@ -354,6 +357,32 @@
       transition: color .2s, text-decoration-style .2s;
     }
     .policy-text a:hover { color: var(--text); text-decoration-style: solid; }
+    .visual.dual.dual-vertical {
+      grid-template-columns: 1fr;
+    }
+
+    .visual.dual.dual-vertical .carplay-pair {
+      min-height: auto;
+      justify-items: center;
+    }
+
+    .visual.dual.dual-vertical .vshot.carplay-main {
+      position: relative;
+      width: 70%;
+      height: auto;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+    }
+
+    .visual.dual.dual-vertical .vshot.carplay-main img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 645 / 377;
+      object-fit: contain;
+    }
+
   </style>
 </head>
 <body>
@@ -371,7 +400,7 @@
       <div class="container hero-grid">
         <div class="hero-copy" data-reveal>
           <span class="eyebrow">Fuel prices, routes and refuels</span>
-          <h1>Find cheaper fuel every drive.</h1>
+          <h1>Find cheap fuel every drive.</h1>
           <p>Tank Radar brings nearby fuel prices, station details, price insights and refueling history into one focused experience across iPhone and CarPlay.</p>
           <div class="hero-actions">
             <a href="https://apps.apple.com/us/app/tank-radar/id6761129717" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-track="hero_app_store_click">Download on the App Store</a>
@@ -380,16 +409,16 @@
           <div class="stats">
             <div class="stat"><strong>Live station list</strong><span>Sort by price and compare ETA, distance and pump prices at a glance.</span></div>
             <div class="stat"><strong>Private history</strong><span>Refueling history stays on the device and helps build personal price insights.</span></div>
-            <div class="stat"><strong>Cross-device flow</strong><span>Continue naturally from iPhone to CarPlay when it is time to drive.</span></div>
+            <div class="stat"><strong>Cross-device</strong><span>Continue naturally from iPhone to CarPlay when it is time to drive.</span></div>
           </div>
         </div>
         <div class="hero-stage" data-reveal>
           <div class="glow a"></div>
           <div class="glow b"></div>
-          <div class="device carplay hero-carplay-list"><img src="/images/screenshots/IMG_8988.jpg" alt="Tank Radar CarPlay station list showing ETA, distance and best price"></div>
+          <!-- <div class="device carplay hero-carplay-list"><img src="/images/screenshots/IMG_8988.jpg" alt="Tank Radar CarPlay station list showing ETA, distance and best price"></div> -->
           <div class="device iphone hero-station-list"><img src="/images/screenshots/IMG_8989.jpg" alt="Tank Radar iPhone station list showing sorted fuel prices, ETA and distance"></div>
           <div class="device iphone hero-station-detail"><img src="/images/screenshots/IMG_8999.jpg" alt="Tank Radar iPhone station detail view with price insights and navigation options"></div>
-          <div class="device carplay hero-carplay-list"><img src="/images/screenshots/IMG_8990.jpg" alt="Tank Radar CarPlay station list showing ETA, distance and best price"></div>
+          <div class="device carplay hero-carplay-list"><img src="/images/screenshots/IMG_8988.jpg" alt="Tank Radar CarPlay station list showing ETA, distance and best price"></div>
           <div class="device iphone hero-insights"><img src="/images/screenshots/IMG_8997.jpg" alt="Tank Radar iPhone price insights tab with trends and history"></div>
           <!-- <div class="badge-note note-a">Browse nearby stations, inspect the price context, then open the route in the maps app you already prefer.</div>
           <div class="badge-note note-b">After refueling, save the final pump price locally and let your own history make the next stop smarter.</div> -->
@@ -402,19 +431,19 @@
         <div class="section-head" data-reveal>
           <div>
             <span class="eyebrow">Designed around the journey</span>
-            <h2>A cleaner flow from search to station to history.</h2>
+            <h2>From search to best price to insights.</h2>
           </div>
-          <p>The visuals now tell the story the app already supports: compare nearby options, inspect a station in more detail, start navigation, and keep the actual refill price for future insight.</p>
+          <p>The visuals now tell the story the app already supports: view the best prices first, compare nearby options, inspect a station in more detail, view insights, start navigation, and keep the actual refill price for future insights.</p>
         </div>
         <div class="story-grid">
           <article class="story-card" data-reveal>
             <div class="visual dual">
               <div class="phone-pair">
-                <div class="vshot phone-left"><img src="/images/screenshots/IMG_8989.jpg" alt="iPhone station list view"></div>
-                <div class="vshot phone-right"><img src="/images/screenshots/IMG_8999.jpg" alt="iPhone station detail view"></div>
+                <div class="device iphone vshot phone-left"><img src="/images/screenshots/IMG_8989.jpg" alt="iPhone station list view"></div>
+                <div class="device iphone vshot phone-right"><img src="/images/screenshots/IMG_8999.jpg" alt="iPhone station detail view"></div>
               </div>
               <div class="carplay-pair">
-                <div class="vshot carplay-main"><img src="/images/screenshots/IMG_8988.jpg" alt="CarPlay station list view"></div>
+                <div class="device carplay vshot carplay-main"><img src="/images/screenshots/IMG_8988.jpg" alt="CarPlay station list view"></div>
               </div>
             </div>
             <div class="story-copy">
@@ -440,34 +469,27 @@
             </div>
             <div class="visual dual">
               <div class="phone-pair">
-                <div class="vshot phone-left"><img src="/images/screenshots/IMG_8997.jpg" alt="iPhone price insights tab"></div>
-                <div class="vshot phone-right"><img src="/images/screenshots/IMG_8999.jpg" alt="iPhone history record update screen"></div>
+                <div class="device iphone vshot phone-left"><img src="/images/screenshots/IMG_8997.jpg" alt="iPhone price insights tab"></div>
+                <div class="device iphone vshot phone-right"><img src="/images/screenshots/IMG_8995.jpg" alt="iPhone history record update screen"></div>
               </div>
               <div class="carplay-pair">
-                <div class="vshot carplay-main"><img src="/images/screenshots/IMG_8995.jpg" alt="CarPlay placeholder image area"></div>
+                <div class="device carplay vshot carplay-main"><img src="/images/screenshots/IMG_8994.jpg" alt="CarPlay placeholder image area"></div>
               </div>
             </div>
           </article>
 
           <article class="story-card" data-reveal>
-            <div class="visual dual">
+            <div class="visual dual dual-vertical">
               <div class="carplay-pair">
-                <div class="vshot carplay-main"><img src="/images/screenshots/IMG_8995.jpg" alt="CarPlay station list screenshot"></div>
+                  <div class="device carplay vshot carplay-main"><img src="/images/screenshots/IMG_8988.jpg" alt="CarPlay station list screenshot"></div>
               </div>
-              <div class="carplay-pair" style="display:grid; gap:16px; align-content:center;">
-                <div class="panel">
-                  <h3 style="margin-bottom:8px;">CarPlay station detail</h3>
-                  <p>Placeholder for the CarPlay detail screen with price insights and route actions.</p>
-                </div>
-                <div class="panel">
-                  <h3 style="margin-bottom:8px;">CarPlay history update</h3>
-                  <p>Placeholder for the CarPlay history record editing screen.</p>
-                </div>
+              <div class="carplay-pair">
+                  <div class="device carplay vshot carplay-main"><img src="/images/screenshots/IMG_8994.jpg" alt="CarPlay station list screenshot"></div>
               </div>
             </div>
             <div class="story-copy">
               <h3>Built to feel at home in the car.</h3>
-              <p>CarPlay extends the same station and price context into a layout that stays simple while driving. The missing screenshot slots are preserved so the final published page can complete the in-car story with station details and direct history editing.</p>
+              <p>CarPlay extends the same station and price context into a layout that stays simple while driving.</p>
               <div class="feature-list">
                 <div class="feature"><strong>At-a-glance list view</strong><span>Price, ETA, distance and best-price context remain readable on the car display.</span></div>
                 <div class="feature"><strong>Route handoff</strong><span>Drivers can move from discovery to navigation without leaving the flow.</span></div>
@@ -486,6 +508,8 @@
             <span class="eyebrow">What Tank Radar offers</span>
             <h2>Everything presented as one product.</h2>
           </div>
+        </div>
+        <div class="platforms">
           <article class="platform-card" data-reveal>
             <h3>On iPhone</h3>
             <ul>
@@ -496,8 +520,6 @@
               <li>Edit the final paid price and keep history accurate on-device.</li>
             </ul>
           </article>
-        </div>
-        <div class="platforms">
           <article class="platform-card" data-reveal>
             <h3>On CarPlay</h3>
             <ul>
@@ -506,16 +528,6 @@
               <li>Continue the same flow from iPhone without relearning the app.</li>
               <li>Access refueling history support and update price records from the car display.</li>
               <li>Keep the experience focused on essential decisions while driving.</li>
-            </ul>
-          </article>
-          
-          <article class="platform-card" data-reveal>
-            <h3>Privacy First</h3>
-            <ul>
-              <li>Tank Radar collects anonymous usage data only for app interaction measurements such as taps and feature usage.</li>
-              <li>Usage data is limited to anonymous interaction signals used to improve the app.</li>
-              <li>No personal profile is created from analytics events.</li>
-              <li>Refueling history and edited pump prices remain local to the device.</li>
             </ul>
           </article>
         </div>
