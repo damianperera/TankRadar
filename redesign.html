@@ -9,31 +9,68 @@
     gtag('config', 'G-32P4J8EJFV', { anonymize_ip: true });
   </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ✏ viewport-fit=cover added for iPhone notch / Dynamic Island safe areas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Tank Radar | Fuel Prices on iPhone and CarPlay</title>
   <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
   <link rel="shortcut icon" href="/images/favicon.ico" />
-  <meta name="description" content="Tank Radar helps drivers compare nearby fuel stations, see price insights from refueling history, and continue seamlessly from iPhone to CarPlay with Apple Maps support." />
+  <!-- ✏ Added apple-touch-icon for iOS home screen shortcut -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  <meta name="description" content="Tank Radar helps drivers compare nearby fuel stations, see price insights from refueling history, and continue seamlessly from iPhone to CarPlay with your favourite maps app." />
   <meta name="author" content="Damian Perera" />
-  <meta name="keywords" content="Tank Radar, fuel prices, iPhone fuel app, CarPlay fuel app, Apple Maps fuel navigation, fuel station list, price insights, refueling history" />
+  <meta name="keywords" content="Tank Radar, fuel prices, iPhone fuel app, CarPlay fuel app, fuel navigation, best fuel, fuel price, cheapest fuel, fuel station list, price insights, refueling history" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#11100f" />
+  <!-- ✏ og:locale added for better Open Graph targeting -->
+  <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tankradar.perera.io/" />
   <meta property="og:site_name" content="Tank Radar" />
   <meta property="og:title" content="Tank Radar | Fuel Prices on iPhone and CarPlay" />
-  <meta property="og:description" content="Compare nearby fuel stations, inspect price context, navigate with your preferred maps app, and keep a private local refueling history." />
+  <meta property="og:description" content="Compare nearby fuel stations, view price insights, navigate with your preferred maps app, and keep a private record of your refueling history." />
   <meta property="og:image" content="https://tankradar.perera.io/images/og-preview.png" />
+  <meta property="og:image:alt"   content="Tank Radar Preview" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tank Radar | Fuel Prices on iPhone and CarPlay" />
   <meta name="twitter:description" content="Fuel stations, price insights and refueling history in one focused iPhone and CarPlay experience." />
   <meta name="twitter:image" content="https://tankradar.perera.io/images/og-preview.png" />
+  <meta name="twitter:app:id:iphone"    content="6761129717" />
+  <meta name="twitter:app:url:iphone"   content="https://apps.apple.com/us/app/tank-radar/id6761129717" />
+  <!-- ✏ Fixed: was 6.761129717e+09 (scientific notation bug) -->
   <meta name="apple-itunes-app" content="app-id=6761129717" />
   <link rel="canonical" href="https://tankradar.perera.io/" />
+  <!-- ✏ Added preconnect for GTM and dns-prefetch for GA to improve analytics load -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <!-- ✏ JSON-LD SoftwareApplication schema for Google rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tank Radar",
+    "operatingSystem": "iOS",
+    "applicationCategory": "TravelApplication",
+    "description": "Tank Radar helps drivers compare nearby fuel stations, see price insights from refueling history, and continue seamlessly from iPhone to CarPlay with your favourite maps app.",
+    "url": "https://tankradar.perera.io/",
+    "image": "https://tankradar.perera.io/images/og-preview.png",
+    "screenshot": "https://tankradar.perera.io/images/og-preview.png",
+    "author": {
+      "@type": "Person",
+      "name": "Damian Perera",
+      "url": "https://tankradar.perera.io/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0.99",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
   <style>
     :root {
       --bg: #11100f;
@@ -72,7 +109,11 @@
     .btn:hover { transform: translateY(-2px); }
     .hero { padding:72px 0 42px; overflow:hidden; }
     .hero-grid { display:grid; grid-template-columns: 1fr 1.05fr; gap:40px; align-items:center; }
-    .eyebrow { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:rgba(255,148,71,.12); border:1px solid rgba(255,148,71,.2); color:#ffc59e; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; }
+    .eyebrow { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; margin-bottom: 10px; border-radius:999px; background:rgba(255,148,71,.12); border:1px solid rgba(255,148,71,.2); color:#ffc59e; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; }
+    h1 b {
+      font-weight: 800 !important;
+      color: #ff9447 !important;
+    }
     h1,h2,h3 { font-family:'Cabinet Grotesk', sans-serif; letter-spacing:-.03em; line-height:1.05; }
     h1 { font-size: clamp(3rem, 5vw, 5.6rem); max-width:10ch; margin-top:18px; }
     .hero-copy p { margin-top:20px; color:var(--muted); max-width:58ch; font-size:1.08rem; }
@@ -159,13 +200,30 @@
       h1 { max-width:12ch; }
       .stats { grid-template-columns:1fr; }
       .hero { padding-top:40px; }
-      .hero-stage { min-height:1320px; }
-      .iphone { width:min(280px, 72vw); }
-      .carplay { width:min(94vw, 520px); }
-      .hero-station-list { top:10px; left:50%; transform:translateX(-50%) rotate(-3deg); }
-      .hero-station-detail { top:340px; left:50%; right:auto; transform:translateX(-50%) rotate(3deg); }
-      .hero-carplay-list { top:720px; left:50%; right:auto; bottom:auto; transform:translateX(-50%) rotate(2deg); }
-      .hero-insights { top:980px; left:50%; bottom:auto; transform:translateX(-50%) rotate(-2deg); }
+      /* Hero stage: switch to flex column so heights are automatic
+         and float* animations cannot override translateX(-50%) centering */
+      .hero-stage {
+        display: none;
+      }
+      /* Reset absolute positioning and animation on every hero device */
+      .hero-station-list,
+      .hero-station-detail,
+      .hero-carplay-list,
+      .hero-insights {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        animation: none;
+      }
+      /* Preserve subtle tilt for visual interest (no animation conflict) */
+      .hero-station-list  { transform: rotate(-1.5deg); }
+      .hero-station-detail { transform: rotate(1.5deg); }
+      .hero-carplay-list  { transform: rotate(-0.8deg); }
+      .hero-insights      { transform: rotate(1deg); }
+      .iphone { width: min(280px, 72vw); }
+      .carplay { width: min(90vw, 480px); }
       .badge-note { display:none; }
       .visual.dual { grid-template-columns:1fr; }
       .phone-pair, .carplay-pair { min-height:auto; display:grid; gap:14px; }
@@ -217,9 +275,20 @@
       border-radius: 28px 28px 0 0;
       padding: 40px 32px;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       transform: translateY(100%);
       transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: 0 -20px 60px rgba(0,0,0,0.5);
+    }
+
+    /* On mobile the sheet must be allowed to fill the full viewport.
+      dvh accounts for the dynamic browser chrome (address bar). */
+    @media (max-width: 767px) {
+      .overlay-content {
+        max-height: 100dvh;
+        padding: 28px 20px;
+        border-radius: 24px 24px 0 0;
+      }
     }
     .overlay-section:target { opacity: 1; visibility: visible; }
     .overlay-section:target .overlay-content { transform: translateY(0); }
@@ -399,8 +468,8 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy" data-reveal>
-          <span class="eyebrow">Fuel prices, routes and refuels</span>
-          <h1>Find cheap fuel every drive.</h1>
+          <span class="eyebrow">Fuel prices, insights and history</span>
+          <h1>Find <b>cheap fuel</b> every drive.</h1>
           <p>Tank Radar brings nearby fuel prices, station details, price insights and refueling history into one focused experience across iPhone and CarPlay.</p>
           <div class="hero-actions">
             <a href="https://apps.apple.com/us/app/tank-radar/id6761129717" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-track="hero_app_store_click">Download on the App Store</a>
@@ -460,9 +529,9 @@
           <article class="story-card reverse" data-reveal>
             <div class="story-copy">
               <h3>Your refuels become useful beyond the moment.</h3>
-              <p>Tank Radar is not only about finding a station right now. The app also keeps a local record of what you actually paid, letting the price insights view surface trends, price history and the historically cheapest day to refuel based on your own usage.</p>
+              <p>Tank Radar is not only about finding a station right now. The app also keeps a local record of what you actually paid, letting Price Insights surface trends, price history and the historically cheapest day to refuel based on your own usage.</p>
               <div class="feature-list">
-                <div class="feature"><strong>Price insights</strong><span>See recent direction, historical price changes and patterns drawn from your own refueling history.</span></div>
+                <div class="feature"><strong>Price insights</strong><span>See recent trends, historical price changes and patterns drawn from your own refueling history.</span></div>
                 <div class="feature"><strong>Refuel history</strong><span>Every stop stays available as a clean timeline that is easy to review later.</span></div>
                 <div class="feature"><strong>Editable final price</strong><span>If the actual pump price differs, you can correct the history entry and keep your records accurate.</span></div>
               </div>
@@ -515,7 +584,7 @@
             <ul>
               <li>Browse nearby stations with price, distance, ETA and best-price highlighting.</li>
               <li>Open station details with current price context and comparisons against your own recent refuels and nearby averages.</li>
-              <li>Start navigation from your preferred maps app.</li>
+              <li>Start navigation from your preferred maps app from Waze, Google Maps or Apple Maps.</li>
               <li>Review price insights based on your own refueling history.</li>
               <li>Edit the final paid price and keep history accurate on-device.</li>
             </ul>
