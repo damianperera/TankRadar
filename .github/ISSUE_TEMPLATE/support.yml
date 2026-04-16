@@ -10,7 +10,7 @@ body:
     attributes:
       value: |
         <br>
-        <h1><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png" width="24" height="24"> Welcome! I'm here to help.</h1>
+        <h1>Welcome! I'm here to help.</h1>
         <p>Please fill out this form as completely as possible - the more detail you provide, the faster I can fix the issue for you.</p>
 
         > [!IMPORTANT]
@@ -25,7 +25,7 @@ body:
     attributes:
       value: |
         <br>
-        <h2><img src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png" width="20" height="20"> Before You Submit</h2>
+        <h2>Before You Submit</h2>
 
   - type: checkboxes
     id: preflight
@@ -54,7 +54,7 @@ body:
     attributes:
       value: |
         <br>
-        <h2><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png" width="20" height="20"> Describe the Problem</h2>
+        <h2>Describe the Problem</h2>
 
   - type: textarea
     id: description
@@ -108,7 +108,7 @@ body:
     attributes:
       value: |
         <br>
-        <h2><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f1.png" width="20" height="20"> Your Device &amp; App Info</h2>
+        <h2>Your Device &amp; App Info</h2>
 
   - type: input
     id: device_model
@@ -143,7 +143,7 @@ body:
     attributes:
       value: |
         <br>
-        <h2><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f8.png" width="20" height="20"> Screenshots &amp; Screen Recordings</h2>
+        <h2>Screenshots &amp; Screen Recordings</h2>
         <p>A picture is worth a thousand words! Please attach screenshots or a screen recording of the issue.</p>
         <ul>
           <li><strong>Screenshot:</strong> Press the <strong>Side Button + Volume Up</strong> at the same time. The screenshot will be saved to your Photos app.</li>
@@ -168,7 +168,7 @@ body:
     attributes:
       value: |
         <br>
-        <h2><img src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png" width="20" height="20"> Error Messages</h2>
+        <h2>Error Messages</h2>
 
   - type: textarea
     id: error_message
@@ -186,7 +186,7 @@ body:
     attributes:
       value: |
         <br>
-        <h2><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4ac.png" width="20" height="20"> Additional Context</h2>
+        <h2>Additional Context</h2>
 
   - type: textarea
     id: additional
@@ -203,7 +203,7 @@ body:
     attributes:
       value: |
         <br>
-        <h2><img src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png" width="20" height="20"> Final Confirmation</h2>
+        <h2>Final Confirmation</h2>
 
         > [!WARNING]
         > <img src="https://desk.zoho.com/galleryDocuments/edbsna9b946ea5c5a295ba995716c4c9a15afb37dce60589dc1bb0435f6ebb991081795a909531ebfe2ebf0dfc3078455e571" width="250">
