@@ -463,6 +463,21 @@
     .country-list { display:flex; gap:10px; flex-wrap:wrap; }
     .country-item { display:flex; align-items:center; gap:9px; padding:7px 14px 7px 8px; border-radius:999px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); font-size:.93rem; font-weight:600; color:var(--text); }
     .country-flag { border-radius:4px; object-fit:cover; width:28px; height:20px; flex-shrink:0; box-shadow:0 1px 4px rgba(0,0,0,0.4); }
+    .support-btn { background:none; border:none; cursor:pointer; color:var(--muted); font-size:.9rem; font-weight:600; padding:0; transition:.2s ease; }
+    .support-btn:hover { color:var(--text); }
+    .modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.6); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:20px; }
+    .modal-overlay.open { display:flex; }
+    .modal { background:#1c1915; border:1px solid rgba(255,255,255,.12); border-radius:24px; padding:36px 32px; max-width:440px; width:100%; box-shadow:0 32px 80px rgba(0,0,0,.5); position:relative; }
+    .modal h3 { font-size:1.4rem; letter-spacing:-.02em; margin-bottom:10px; }
+    .modal p { color:var(--muted); font-size:.97rem; line-height:1.6; margin-bottom:24px; }
+    .modal-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .modal-close { position:absolute; top:16px; right:18px; background:none; border:none; color:var(--muted-2); font-size:1.3rem; cursor:pointer; line-height:1; padding:4px; }
+    .modal-close:hover { color:var(--text); }
+    @media (max-width:480px) {
+      .modal { padding:28px 20px; border-radius:18px; }
+      .modal-actions { flex-direction:column; }
+      .modal-actions .btn { width:100%; }
+    }
   </style>
 </head>
 <body>
@@ -644,7 +659,10 @@
   </main>
 
   <footer>
-    <div class="container">© 2026 Damian Perera · <a href="#privacy-policy" data-track="footer_privacy_click">Privacy Policy</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer" data-track="footer_eula_click">EULA</a></div>
+    <div class="container">
+      © 2026 Damian Perera · <a href="#privacy-policy" data-track="footer_privacy_click">Privacy Policy</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer" data-track="footer_eula_click">EULA</a> ·
+      <button class="support-btn" onclick="openSupportModal()">Get Support</button>
+    </div>
   </footer>
 
   <!-- Privacy Policy Overlay -->
@@ -843,6 +861,30 @@
       supports_carplay: true,
       includes_price_insights: true,
       includes_refueling_history: true
+    });
+  </script> 
+
+  <!-- Support Modal -->
+  <div class="modal-overlay" id="supportModal" role="dialog" aria-modal="true" aria-labelledby="supportModalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeSupportModal()" aria-label="Close">&times;</button>
+      <h3 id="supportModalTitle">Get Support</h3>
+      <p>Support requests for Tank Radar are handled through GitHub Issues. You may need to create a free GitHub account if you don't have one already.</p>
+      <div class="modal-actions">
+        <a href="https://github.com/damianperera/TankRadar/issues/new/choose" target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="closeSupportModal()">Open a Support Request</a>
+        <button class="close-btn" onclick="closeSupportModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openSupportModal() { document.getElementById('supportModal').classList.add('open'); }
+    function closeSupportModal() { document.getElementById('supportModal').classList.remove('open'); }
+    document.getElementById('supportModal').addEventListener('click', function(e) {
+      if (e.target === this) closeSupportModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSupportModal();
     });
   </script>
 </body>
