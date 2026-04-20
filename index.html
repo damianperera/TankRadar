@@ -103,6 +103,14 @@
     .brand { display:flex; align-items:center; gap:14px; font-weight:700; }
     .brand img { width:46px; height:46px; border-radius:5px; }
     .brand small { display:block; color:var(--muted); font-weight:500; }
+    button.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
     .btn { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 20px; border-radius:999px; font-weight:700; transition:.22s ease; }
     .btn-primary { background: linear-gradient(135deg, #fff0e5, #ffffff); color:#171311; box-shadow:0 10px 28px rgba(255,255,255,.13); }
     .btn-secondary { background: var(--surface); border:1px solid var(--border); }
@@ -831,21 +839,18 @@
         </p>
       
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
-  				<a
-   			 		href="https://github.com/YOUR_USERNAME/YOUR_REPO/issues/new"
-    				target="_blank"
-    				rel="noopener noreferrer"
-    				class="btn btn-secondary"
-    				data-track="support_github_click"
-  				>Open a Support Ticket</a>
-  				<a
-    				href="https://apps.apple.com/us/app/tank-radar/id6761129717"
-    				target="_blank"
-    				rel="noopener noreferrer"
-    				class="btn btn-secondary"
-    				data-track="support_review_click"
-  				>Leave a Review</a>
-				</div>
+  <button
+    class="btn btn-primary"
+    onclick="window.open('https://github.com/YOUR_USERNAME/YOUR_REPO/issues/new', '_blank', 'noopener,noreferrer')"
+    data-track="support_github_click"
+  >Open a Support Ticket</button>
+  <button
+    class="btn btn-secondary"
+    onclick="window.open('https://apps.apple.com/us/app/tank-radar/id6761129717', '_blank', 'noopener,noreferrer')"
+    data-track="support_review_click"
+  >Leave a Review</button>
+</div>
+
       </div>
     </div>
   </div>
