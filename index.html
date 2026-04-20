@@ -463,11 +463,17 @@
     .country-list { display:flex; gap:10px; flex-wrap:wrap; }
     .country-item { display:flex; align-items:center; gap:9px; padding:7px 14px 7px 8px; border-radius:999px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); font-size:.93rem; font-weight:600; color:var(--text); }
     .country-flag { border-radius:4px; object-fit:cover; width:28px; height:20px; flex-shrink:0; box-shadow:0 1px 4px rgba(0,0,0,0.4); }
-    .support-btn { 
-      color:var(--muted); font-size:.9rem; font-weight:600; 
-      transition:.2s ease; text-decoration:none;
-    }
-    .support-btn:hover { color:var(--text); }
+    #support .overlay-content {
+			max-width: 460px;
+		}
+		#support .overlay-content .close-btn {
+  		background: rgba(255,255,255,0.07);
+  		border-color: rgba(255,255,255,0.12);
+  		color: var(--text);
+		}
+		#support .overlay-content .close-btn:hover {
+  		background: rgba(255,255,255,0.12);
+		}
   </style>
 </head>
 <body>
@@ -824,22 +830,22 @@
           if you don't already have one.
         </p>
       
-        <div class="modal-actions" style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
-          <a
-            href="https://github.com/damianperera/TankRadar/issues/new/choose"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary"
-            data-track="support_github_click"
-          >Open a Support Ticket</a>
-          <a
-            href="https://apps.apple.com/us/app/tank-radar/id6761129717"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary"
-            data-track="support_review_click"
-          >Leave a Review</a>
-        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
+  				<a
+   			 		href="https://github.com/YOUR_USERNAME/YOUR_REPO/issues/new"
+    				target="_blank"
+    				rel="noopener noreferrer"
+    				class="btn btn-secondary"
+    				data-track="support_github_click"
+  				>Open a Support Ticket</a>
+  				<a
+    				href="https://apps.apple.com/us/app/tank-radar/id6761129717"
+    				target="_blank"
+    				rel="noopener noreferrer"
+    				class="btn btn-secondary"
+    				data-track="support_review_click"
+  				>Leave a Review</a>
+				</div>
       </div>
     </div>
   </div>
